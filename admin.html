@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Content - PMs Shipping Code</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0a0a1a;
+            --secondary: #12122a;
+            --tertiary: #1a1a3a;
+            --accent: #6366f1;
+            --accent-light: #818cf8;
+            --highlight: #f43f5e;
+            --success: #10b981;
+            --text: #f1f5f9;
+            --text-muted: #94a3b8;
+            --card-bg: rgba(30, 30, 60, 0.6);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --glass: rgba(255, 255, 255, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--primary);
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .admin-header {
+            position: sticky;
+            top: 0;
+            background: rgba(10, 10, 26, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--card-border);
+            padding: 15px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 100;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-logo {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.2rem;
+            color: var(--accent);
+            background: rgba(99, 102, 241, 0.15);
+            padding: 8px 12px;
+            border-radius: 8px;
+        }
+
+        .header-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .user-email {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .header-btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .btn-secondary {
+            background: var(--glass);
+            border: 1px solid var(--card-border);
+            color: var(--text);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            border: none;
+            color: white;
+        }
+
+        .btn-logout {
+            background: transparent;
+            border: 1px solid var(--card-border);
+            color: var(--text-muted);
+            padding: 8px 16px;
+        }
+
+        /* Main Content */
+        .admin-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        .section-header {
+            margin-bottom: 30px;
+        }
+
+        .section-header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+        }
+
+        /* Tabs */
+        .edit-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 15px;
+        }
+
+        .edit-tab {
+            padding: 10px 20px;
+            background: transparent;
+            border: none;
+            border-radius: 8px;
+            color: var(--text-muted);
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .edit-tab:hover {
+            color: var(--text);
+        }
+
+        .edit-tab.active {
+            background: var(--accent);
+            color: white;
+        }
+
+        /* Edit Panels */
+        .edit-panel {
+            display: none;
+        }
+
+        .edit-panel.active {
+            display: block;
+        }
+
+        .edit-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 25px;
+        }
+
+        .edit-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-number {
+            background: var(--accent);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: var(--text-muted);
+        }
+
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 14px 18px;
+            background: var(--glass);
+            border: 1px solid var(--card-border);
+            border-radius: 10px;
+            color: var(--text);
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+        }
+
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+            line-height: 1.6;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        /* Status Badge */
+        .status-select {
+            padding: 10px 16px;
+            background: var(--glass);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            color: var(--text);
+            font-family: inherit;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        .status-select:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        /* Save Notification */
+        .save-notification {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--success);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .save-notification.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Coming Soon */
+        .coming-soon {
+            text-align: center;
+            padding: 60px 40px;
+            color: var(--text-muted);
+        }
+
+        .coming-soon-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
+
+        .coming-soon h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+    </style>
+</head>
+<body>
+    <header class="admin-header">
+        <div class="header-left">
+            <span class="header-logo">&lt;/&gt;</span>
+            <span class="header-title">Content Editor</span>
+        </div>
+        <div class="header-right">
+            <span class="user-email" id="userEmail"></span>
+            <a href="index.html" class="header-btn btn-secondary">View Site</a>
+            <button class="header-btn btn-logout" id="logoutBtn">Log out</button>
+        </div>
+    </header>
+
+    <div class="admin-container">
+        <div class="section-header">
+            <h1>Edit Presentation Content</h1>
+            <p>Changes are saved automatically and will appear on the live site.</p>
+        </div>
+
+        <div class="edit-tabs">
+            <button class="edit-tab active" data-panel="demos">Demos</button>
+            <button class="edit-tab" data-panel="learnings">Learnings</button>
+            <button class="edit-tab" data-panel="conclusions">Conclusions</button>
+            <button class="edit-tab" data-panel="stats">Stats</button>
+        </div>
+
+        <!-- Demos Panel -->
+        <div class="edit-panel active" id="panel-demos">
+            <div class="edit-card">
+                <h3><span class="card-number">1</span> Field Agent Admin Panel</h3>
+                <div class="form-group">
+                    <label class="form-label">Status</label>
+                    <select class="status-select" data-field="demo1_status">
+                        <option value="working">Working Prototype</option>
+                        <option value="complete">Complete</option>
+                        <option value="shipped">Shipped to Production</option>
+                        <option value="in-progress">In Progress</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Description</label>
+                    <textarea class="form-textarea" data-field="demo1_description">A functional prototype for configuring Field Agent behavior through admin settings. Demonstrates how PMs can create working internal tools.</textarea>
+                </div>
+            </div>
+
+            <div class="edit-card">
+                <h3><span class="card-number">2</span> AI Governance Audit</h3>
+                <div class="form-group">
+                    <label class="form-label">Status</label>
+                    <select class="status-select" data-field="demo2_status">
+                        <option value="working">Working Prototype</option>
+                        <option value="complete" selected>Complete</option>
+                        <option value="shipped">Shipped to Production</option>
+                        <option value="in-progress">In Progress</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Description</label>
+                    <textarea class="form-textarea" data-field="demo2_description">Automated analysis of existing AI governance implementation. Identified gaps and generated actionable recommendations.</textarea>
+                </div>
+            </div>
+
+            <div class="edit-card">
+                <h3><span class="card-number">3</span> Multi-Select Dropdown Fix</h3>
+                <div class="form-group">
+                    <label class="form-label">Status</label>
+                    <select class="status-select" data-field="demo3_status">
+                        <option value="working">Working Prototype</option>
+                        <option value="complete">Complete</option>
+                        <option value="shipped" selected>Shipped to Production</option>
+                        <option value="in-progress">In Progress</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Description</label>
+                    <textarea class="form-textarea" data-field="demo3_description">A case study in complexity. What looked like 2 hours became 6 hours across 13 commits resolving 9 cascading bugs.</textarea>
+                </div>
+            </div>
+
+            <div class="edit-card">
+                <h3><span class="card-number">4</span> Cursor Rules for Admin</h3>
+                <div class="form-group">
+                    <label class="form-label">Status</label>
+                    <select class="status-select" data-field="demo4_status">
+                        <option value="working">Working Prototype</option>
+                        <option value="complete">Complete</option>
+                        <option value="shipped">Shipped to Production</option>
+                        <option value="in-progress" selected>In Progress</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Description</label>
+                    <textarea class="form-textarea" data-field="demo4_description">Domain-specific AI guidance rules to help Claude understand admin panel patterns and make better decisions.</textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Learnings Panel -->
+        <div class="edit-panel" id="panel-learnings">
+            <div class="edit-card">
+                <h3><span class="card-number">1</span> Learning #1</h3>
+                <div class="form-group">
+                    <label class="form-label">Title</label>
+                    <input type="text" class="form-input" data-field="learning1_title" value="PMs May Actually Be Better at AI Coding">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Description</label>
+                    <textarea class="form-textarea" data-field="learning1_description">Engineers' deep expertise can actually work against them with AI tools. PMs approach problems differently—describing what they want rather than how to build it—which aligns better with how AI coding assistants work.</textarea>
+                </div>
+            </div>
+
+            <div class="edit-card">
+                <h3><span class="card-number">2</span> Learning #2</h3>
+                <div class="form-group">
+                    <label class="form-label">Title</label>
+                    <input type="text" class="form-input" data-field="learning2_title" value="Negative Instructions Beat Proactive Ones">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Description</label>
+                    <textarea class="form-textarea" data-field="learning2_description">When configuring AI coding assistants (via Claude.md files), telling it what NOT to do is more effective than describing ideal behavior.</textarea>
+                </div>
+            </div>
+
+            <div class="edit-card">
+                <h3><span class="card-number">3</span> Learning #3</h3>
+                <div class="form-group">
+                    <label class="form-label">Title</label>
+                    <input type="text" class="form-input" data-field="learning3_title" value="Code Review is the Real Bottleneck">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Description</label>
+                    <textarea class="form-textarea" data-field="learning3_description">PMs can write code faster than engineers can review it. The traditional code review process assumes the author is an engineer who can iterate independently.</textarea>
+                </div>
+            </div>
+
+            <div class="edit-card">
+                <h3><span class="card-number">4</span> Learning #4</h3>
+                <div class="form-group">
+                    <label class="form-label">Title</label>
+                    <input type="text" class="form-input" data-field="learning4_title" value="Scoping Down is a Legitimate Strategy">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Description</label>
+                    <textarea class="form-textarea" data-field="learning4_description">The instinct to "just fix it properly" often leads to scope creep that exceeds PM coding capabilities. Explicitly choosing a smaller scope is valid when it delivers user value faster.</textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conclusions Panel -->
+        <div class="edit-panel" id="panel-conclusions">
+            <div class="edit-card">
+                <h3><span class="card-number">1</span> Conclusion #1</h3>
+                <div class="form-group">
+                    <label class="form-label">Title</label>
+                    <input type="text" class="form-input" data-field="conclusion1_title" value="PMs Can Produce ROI-Positive Prototypes">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Description</label>
+                    <textarea class="form-textarea" data-field="conclusion1_description">The governance framework audit alone demonstrates that PMs with AI tools can deliver meaningful technical output. Even if PM code requires more review cycles, the net ROI is positive for certain categories of work.</textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Verdict</label>
+                    <select class="status-select" data-field="conclusion1_verdict">
+                        <option value="validated" selected>Validated</option>
+                        <option value="nuanced">Nuanced Reality</option>
+                        <option value="disproven">Disproven</option>
+                        <option value="pending">Pending</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="edit-card">
+                <h3><span class="card-number">2</span> Conclusion #2</h3>
+                <div class="form-group">
+                    <label class="form-label">Title</label>
+                    <input type="text" class="form-input" data-field="conclusion2_title" value="AI Accelerates Coding But Doesn't Simplify Engineering">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Description</label>
+                    <textarea class="form-textarea" data-field="conclusion2_description">Claude Code dramatically reduces the barrier to writing syntactically correct code. However, understanding system architecture, anticipating edge cases, and navigating organizational code patterns remain genuinely difficult.</textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Verdict</label>
+                    <select class="status-select" data-field="conclusion2_verdict">
+                        <option value="validated">Validated</option>
+                        <option value="nuanced" selected>Nuanced Reality</option>
+                        <option value="disproven">Disproven</option>
+                        <option value="pending">Pending</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Panel -->
+        <div class="edit-panel" id="panel-stats">
+            <div class="edit-card">
+                <h3>Homepage Stats</h3>
+                <div class="form-group">
+                    <label class="form-label">PRs Shipped</label>
+                    <input type="number" class="form-input" data-field="stat_prs" value="15" style="width: 120px;">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Active Projects</label>
+                    <input type="number" class="form-input" data-field="stat_projects" value="4" style="width: 120px;">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">PMs Coding</label>
+                    <input type="number" class="form-input" data-field="stat_pms" value="3" style="width: 120px;">
+                </div>
+            </div>
+
+            <div class="edit-card">
+                <h3>Easter Egg Stats</h3>
+                <div class="form-group">
+                    <label class="form-label">Messages Sent</label>
+                    <input type="number" class="form-input" data-field="easter_messages" value="4" style="width: 120px;">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Minutes Elapsed</label>
+                    <input type="number" class="form-input" data-field="easter_minutes" value="10" style="width: 120px;">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">API Cost ($)</label>
+                    <input type="number" class="form-input" data-field="easter_cost" value="3" style="width: 120px;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="save-notification" id="saveNotification">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        Changes saved
+    </div>
+
+    <script>
+        // Check authentication
+        const userEmail = sessionStorage.getItem('userEmail');
+        if (!userEmail) {
+            window.location.href = 'login.html';
+        }
+        document.getElementById('userEmail').textContent = userEmail;
+
+        // Logout
+        document.getElementById('logoutBtn').addEventListener('click', () => {
+            sessionStorage.removeItem('userEmail');
+            window.location.href = 'login.html';
+        });
+
+        // Tab switching
+        const tabs = document.querySelectorAll('.edit-tab');
+        const panels = document.querySelectorAll('.edit-panel');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                panels.forEach(p => p.classList.remove('active'));
+
+                tab.classList.add('active');
+                document.getElementById(`panel-${tab.dataset.panel}`).classList.add('active');
+            });
+        });
+
+        // Auto-save functionality
+        const saveNotification = document.getElementById('saveNotification');
+        let saveTimeout;
+
+        function showSaveNotification() {
+            saveNotification.classList.add('visible');
+            clearTimeout(saveTimeout);
+            saveTimeout = setTimeout(() => {
+                saveNotification.classList.remove('visible');
+            }, 2000);
+        }
+
+        // Load saved content
+        function loadContent() {
+            const saved = localStorage.getItem('pms_content');
+            if (saved) {
+                const content = JSON.parse(saved);
+                document.querySelectorAll('[data-field]').forEach(el => {
+                    const field = el.dataset.field;
+                    if (content[field] !== undefined) {
+                        el.value = content[field];
+                    }
+                });
+            }
+        }
+
+        // Save content
+        function saveContent() {
+            const content = {};
+            document.querySelectorAll('[data-field]').forEach(el => {
+                content[el.dataset.field] = el.value;
+            });
+            localStorage.setItem('pms_content', JSON.stringify(content));
+            showSaveNotification();
+        }
+
+        // Add event listeners to all inputs
+        document.querySelectorAll('[data-field]').forEach(el => {
+            el.addEventListener('input', saveContent);
+            el.addEventListener('change', saveContent);
+        });
+
+        // Load content on page load
+        loadContent();
+    </script>
+</body>
+</html>
