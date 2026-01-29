@@ -1938,6 +1938,260 @@ body {
     font-weight: 500;
 }
 
+/* =====================
+   LEARNING DETAIL MODAL
+   ===================== */
+.learning-detail-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 2500;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.learning-detail-modal.active {
+    display: flex;
+}
+
+.learning-detail-modal .modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(20px);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.learning-detail-modal.active .modal-backdrop {
+    opacity: 1;
+}
+
+.learning-detail-content {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background: var(--secondary);
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
+    transform: scale(0.9) translateY(20px);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.learning-detail-modal.active .learning-detail-content {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}
+
+.learning-detail-content .modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--glass);
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 10px;
+    transition: all 0.2s ease;
+    z-index: 10;
+}
+
+.learning-detail-content .modal-close:hover {
+    color: var(--text);
+    border-color: var(--accent);
+}
+
+.learning-detail-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 40px 0;
+}
+
+.learning-detail-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 4rem;
+    font-weight: 800;
+    background: var(--gradient-1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+}
+
+.learning-detail-badge {
+    display: none;
+    padding: 6px 14px;
+    background: var(--gradient-1);
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: white;
+    text-transform: uppercase;
+}
+
+.learning-detail-badge.visible {
+    display: block;
+}
+
+.learning-detail-title {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.3;
+    padding: 20px 40px 30px;
+    border-bottom: 1px solid var(--card-border);
+}
+
+.learning-detail-body {
+    padding: 30px 40px;
+}
+
+.learning-detail-body p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.learning-detail-body p:last-child {
+    margin-bottom: 0;
+}
+
+.learning-detail-body p strong {
+    color: var(--text);
+}
+
+.learning-detail-body .learning-gaps {
+    margin: 25px 0;
+}
+
+.learning-detail-body .gap-item {
+    padding: 16px 18px;
+    margin-bottom: 12px;
+}
+
+.learning-detail-body .gap-number {
+    width: 28px;
+    height: 28px;
+    font-size: 0.8rem;
+}
+
+.learning-detail-body .gap-content {
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.learning-detail-body .learning-quote {
+    padding: 24px 24px 24px 40px;
+    margin: 25px 0;
+}
+
+.learning-detail-body .learning-quote .quote-mark {
+    font-size: 2rem;
+    left: 14px;
+    top: 14px;
+}
+
+.learning-detail-body .learning-quote p {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    line-height: 1.7;
+}
+
+.learning-detail-body .learning-quote .quote-attribution {
+    font-size: 0.9rem;
+}
+
+.learning-detail-body .bottleneck-visual {
+    padding: 30px;
+    margin: 25px 0;
+}
+
+.learning-detail-body .flow-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 0.8rem;
+}
+
+.learning-detail-body .flow-label {
+    font-size: 0.9rem;
+}
+
+.learning-detail-body .flow-speed {
+    font-size: 0.75rem;
+}
+
+.learning-detail-body .learning-insight {
+    padding: 20px 24px;
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-top: 25px;
+}
+
+.learning-detail-footer {
+    padding: 20px 40px;
+    border-top: 1px solid var(--card-border);
+    text-align: center;
+}
+
+.learning-detail-hint {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+}
+
+.learning-detail-hint kbd {
+    display: inline-block;
+    padding: 3px 8px;
+    background: var(--glass);
+    border: 1px solid var(--card-border);
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    margin: 0 2px;
+}
+
+/* Make learning panels clickable */
+.learning-panel {
+    cursor: pointer;
+    position: relative;
+}
+
+.learning-panel::after {
+    content: '';
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    width: 28px;
+    height: 28px;
+    background: var(--glass);
+    border: 1px solid var(--card-border);
+    border-radius: 6px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2'%3E%3Cpath d='M15 3h6v6M14 10l6.1-6.1M9 21H3v-6M10 14l-6.1 6.1'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.6;
+    transition: all 0.2s ease;
+}
+
+.learning-panel:hover::after {
+    opacity: 1;
+    border-color: var(--accent);
+    background-color: rgba(99, 102, 241, 0.15);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236366f1' stroke-width='2'%3E%3Cpath d='M15 3h6v6M14 10l6.1-6.1M9 21H3v-6M10 14l-6.1 6.1'/%3E%3C/svg%3E");
+}
+
+.learning-panel:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
 /* Video Modal (legacy - keeping for compatibility) */
 .video-modal {
     position: fixed;

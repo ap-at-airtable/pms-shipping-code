@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initNavigation();
     initAnimations();
     initVideoModal();
+    initLearningModal();
     initCounters();
     initProgressBars();
 });
@@ -685,6 +686,163 @@ document.addEventListener('keydown', (e) => {
         document.querySelector(`[data-page="${pages[currentIndex - 1]}"]`)?.click();
     }
 });
+
+/* =====================
+   LEARNING DETAIL MODAL
+   ===================== */
+function initLearningModal() {
+    const modal = document.getElementById('learningDetailModal');
+    const closeBtn = modal.querySelector('.modal-close');
+    const backdrop = modal.querySelector('.modal-backdrop');
+
+    let currentLearningIndex = 0;
+
+    // Learning data
+    const learningData = [
+        {
+            number: '01',
+            title: 'Hyperbase Isn\'t AI-Ready Yet',
+            featured: true,
+            content: `
+                <p>The biggest friction isn't PM skill—it's our codebase. <strong>"It feels like there is no ceiling—but we can't bring this into Hyperbase because of these gaps."</strong></p>
+                <div class="learning-gaps">
+                    <div class="gap-item">
+                        <span class="gap-number">1</span>
+                        <div class="gap-content">
+                            <strong>No Claude MD / skills files.</strong> No indexing or directory structure for AI tools. Context fills up too fast.
+                        </div>
+                    </div>
+                    <div class="gap-item">
+                        <span class="gap-number">2</span>
+                        <div class="gap-content">
+                            <strong>No documentation ownership.</strong> Code is diffuse across 50+ locations with no coherent team ownership.
+                        </div>
+                    </div>
+                    <div class="gap-item">
+                        <span class="gap-number">3</span>
+                        <div class="gap-content">
+                            <strong>Overloaded terms.</strong> Words like "future" and "permission" mean different things, causing AI to go down wrong paths.
+                        </div>
+                    </div>
+                </div>
+                <p>These gaps affect everyone—not just PMs. Fixing them would unlock AI productivity across the entire engineering org.</p>
+                <p class="learning-insight"><strong>These are solvable.</strong> Product urges continued focus on codebase skills, indexes, and teams owning .md files for their areas.</p>
+            `
+        },
+        {
+            number: '02',
+            title: 'Our Review Process Needs to Adapt',
+            featured: true,
+            content: `
+                <p>PMs can write code faster than engineers can review it. <strong>Our current PR process assumes authors can iterate independently on feedback.</strong></p>
+                <div class="bottleneck-visual">
+                    <div class="flow-item">
+                        <span class="flow-icon fast">PM</span>
+                        <span class="flow-label">Writes Code</span>
+                        <span class="flow-speed">Fast</span>
+                    </div>
+                    <div class="flow-arrow">
+                        <svg width="40" height="24" viewBox="0 0 40 24">
+                            <path d="M0 12h35M30 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none"/>
+                        </svg>
+                    </div>
+                    <div class="flow-item bottleneck">
+                        <span class="flow-icon slow">ENG</span>
+                        <span class="flow-label">Reviews</span>
+                        <span class="flow-speed">Blocked</span>
+                    </div>
+                </div>
+                <p>Options to explore: Bugbot for automated pre-review, dedicated review slots for PM code, or pairing during the review itself to accelerate iteration.</p>
+                <p class="learning-insight">The 80% solution shipped in hours beats the 100% solution waiting months in backlog. Process should enable this.</p>
+            `
+        },
+        {
+            number: '03',
+            title: 'Prototyping Changes the Game',
+            featured: false,
+            content: `
+                <p>The workflow shift from "write PRD, go through design" to "prototype first, then refine" produces better starting points and faster iteration.</p>
+                <div class="learning-quote">
+                    <span class="quote-mark">"</span>
+                    <p>This was way better than writing a PRD and going through design. Now the starting point with which I go to design is much stronger.</p>
+                    <span class="quote-attribution">— PM after the prototyping spike</span>
+                </div>
+                <p>The Governance spike proved this works even in our most complex areas—permissions and licensing, arguably our most complicated domain. If it works there, it works elsewhere.</p>
+                <p class="learning-insight">Instead of describing what you want, show working code. Engineers receive a functional starting point instead of static mockups.</p>
+            `
+        },
+        {
+            number: '04',
+            title: 'PM-Eng Pairing Creates New Value',
+            featured: false,
+            content: `
+                <p>PMs and engineers approach AI tools differently. <strong>These differences are complementary, not competing.</strong></p>
+                <div class="learning-quote">
+                    <span class="quote-mark">"</span>
+                    <p>It was incredibly helpful to see how you approach using Claude Code as it is a departure from how I solve building as an engineer.</p>
+                    <span class="quote-attribution">— Engineer after pairing with a PM</span>
+                </div>
+                <p>PMs describe outcomes; engineers specify implementations. When paired, they can validate approaches faster and catch blind spots earlier. This is a new collaboration model worth exploring.</p>
+                <p class="learning-insight">Consider dedicated PM-Eng pairing sessions for AI-assisted development. Both roles learn from each other's mental models.</p>
+            `
+        }
+    ];
+
+    // Handle learning panel clicks
+    const learningPanels = document.querySelectorAll('.learning-panel');
+    learningPanels.forEach((panel, index) => {
+        panel.addEventListener('click', () => {
+            openLearningDetail(index);
+        });
+    });
+
+    function openLearningDetail(index) {
+        currentLearningIndex = index;
+        const data = learningData[index];
+
+        document.getElementById('learningDetailNumber').textContent = data.number;
+        document.getElementById('learningDetailTitle').textContent = data.title;
+        document.getElementById('learningDetailBody').innerHTML = data.content;
+
+        const badge = document.getElementById('learningDetailBadge');
+        if (data.featured) {
+            badge.textContent = '★ Key Learning';
+            badge.classList.add('visible');
+        } else {
+            badge.classList.remove('visible');
+        }
+
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    function navigateLearning(direction) {
+        let newIndex = currentLearningIndex + direction;
+        if (newIndex < 0) newIndex = learningData.length - 1;
+        if (newIndex >= learningData.length) newIndex = 0;
+        openLearningDetail(newIndex);
+    }
+
+    closeBtn.addEventListener('click', closeModal);
+    backdrop.addEventListener('click', closeModal);
+
+    document.addEventListener('keydown', (e) => {
+        if (!modal.classList.contains('active')) return;
+
+        if (e.key === 'Escape') {
+            closeModal();
+        } else if (e.key === 'ArrowLeft') {
+            navigateLearning(-1);
+        } else if (e.key === 'ArrowRight') {
+            navigateLearning(1);
+        }
+    });
+}
 
 /* =====================
    EASTER EGG
