@@ -475,70 +475,61 @@
         <section class="page" id="page-conclusions">
             <div class="page-header">
                 <span class="page-number">04</span>
-                <h2 class="page-title">Early Conclusions</h2>
-                <p class="page-subtitle">What we believe to be true based on our findings</p>
+                <h2 class="page-title">Where We Are</h2>
+                <p class="page-subtitle">What we've learned and what we still need to answer</p>
             </div>
             <div class="conclusions-container">
-                <div class="conclusion-card featured" data-index="1">
+                <div class="conclusion-card" data-index="1">
                     <div class="conclusion-header">
                         <div class="conclusion-icon">
                             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                                <polyline points="20 6 9 17 4 12"/>
                             </svg>
                         </div>
-                        <span class="conclusion-label">Key Finding</span>
+                        <span class="conclusion-label">What We Know</span>
                     </div>
-                    <h3>PM Prototyping Changes the Game</h3>
+                    <h3>PMs Can Ship Production Code</h3>
                     <div class="conclusion-body">
-                        <p><strong>This is the biggest unlock.</strong> When PMs can build working prototypes, the entire product development workflow transforms:</p>
-                        <div class="conclusion-highlight">
-                            <span class="highlight-text">Show, don't tell. Working code beats spec docs.</span>
-                        </div>
+                        <p>The hypothesis is validated. PMs with AI tools can write and ship production-ready code—<strong>even in complex areas like governance and permissions.</strong></p>
                         <ul class="conclusion-list">
-                            <li>User testing happens earlier with real interactions</li>
-                            <li>Design/eng alignment improves—everyone sees the same thing</li>
-                            <li>Iteration cycles shrink from weeks to hours</li>
-                            <li>Engineers receive working code, not static mockups</li>
+                            <li>Prototyping accelerates the design/eng workflow</li>
+                            <li>PM-Eng pairing creates complementary value</li>
+                            <li>The 80% solution shipped fast beats 100% in backlog</li>
                         </ul>
-                        <p>The governance framework, Field Agent controls, and consumer app demos all prove this pattern works—even in complex areas.</p>
+                        <p>But Hyperbase isn't AI-ready yet, and our review process needs to adapt for this to scale.</p>
                     </div>
                     <div class="conclusion-verdict">
-                        <span class="verdict-label">Verdict</span>
-                        <span class="verdict-value positive">Game Changer</span>
+                        <span class="verdict-label">Status</span>
+                        <span class="verdict-value positive">Validated</span>
                     </div>
                 </div>
 
-                <div class="conclusion-card" data-index="2">
+                <div class="conclusion-card featured" data-index="2">
                     <div class="conclusion-header">
                         <div class="conclusion-icon">
                             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                                <path d="M2 17l10 5 10-5"/>
-                                <path d="M2 12l10 5 10-5"/>
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                                <line x1="12" y1="17" x2="12.01" y2="17"/>
                             </svg>
                         </div>
-                        <span class="conclusion-label">Conclusion #2</span>
+                        <span class="conclusion-label">Open Questions</span>
                     </div>
-                    <h3>AI Accelerates Coding But Doesn't Simplify Engineering</h3>
+                    <h3>Should PMs Do This? How Much?</h3>
                     <div class="conclusion-body">
-                        <p>Claude Code dramatically reduces the barrier to writing syntactically correct code. However, <strong>understanding system architecture, anticipating edge cases, and navigating organizational code patterns remain genuinely difficult.</strong></p>
-                        <div class="complexity-visual">
-                            <div class="complexity-item">
-                                <span class="complexity-label">Writing Code</span>
-                                <div class="complexity-bar easy"></div>
-                                <span class="complexity-level">Easier with AI</span>
-                            </div>
-                            <div class="complexity-item">
-                                <span class="complexity-label">Understanding Systems</span>
-                                <div class="complexity-bar hard"></div>
-                                <span class="complexity-level">Still Hard</span>
-                            </div>
+                        <p>We've proven PMs <em>can</em> ship code. <strong>The harder question is whether they <em>should</em>—and how much of their time this deserves.</strong></p>
+                        <div class="conclusion-highlight">
+                            <span class="highlight-text">What's the right balance between coding and traditional PM work?</span>
                         </div>
-                        <p>The multi-select dropdown case study proves this: what looked like a 2-hour fix became 6 hours because the complexity wasn't in the code—it was in understanding how the system behaves.</p>
+                        <ul class="conclusion-list">
+                            <li>When is PM coding ROI-positive vs. opportunity cost?</li>
+                            <li>What types of work are best suited for PM coding?</li>
+                            <li>How do we measure value created vs. time invested?</li>
+                        </ul>
                     </div>
                     <div class="conclusion-verdict">
-                        <span class="verdict-label">Verdict</span>
-                        <span class="verdict-value nuanced">Nuanced Reality</span>
+                        <span class="verdict-label">Status</span>
+                        <span class="verdict-value nuanced">Needs Answer</span>
                     </div>
                 </div>
             </div>
@@ -548,19 +539,19 @@
                 <div class="steps-grid">
                     <div class="step-item">
                         <span class="step-number">1</span>
-                        <span class="step-text">Complete remaining demos</span>
+                        <span class="step-text">Define PM coding use cases and boundaries</span>
                     </div>
                     <div class="step-item">
                         <span class="step-number">2</span>
-                        <span class="step-text">Document final workflow</span>
+                        <span class="step-text">Propose time allocation guidance</span>
                     </div>
                     <div class="step-item">
                         <span class="step-number">3</span>
-                        <span class="step-text">Present findings to leadership</span>
+                        <span class="step-text">Identify Hyperbase AI-readiness improvements</span>
                     </div>
                     <div class="step-item">
                         <span class="step-number">4</span>
-                        <span class="step-text">Plan pilot expansion</span>
+                        <span class="step-text">Design adapted review process for PM code</span>
                     </div>
                 </div>
             </div>
