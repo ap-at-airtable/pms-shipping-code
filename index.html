@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PMs Shipping Code - Leadership Check-in</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
+
+    <!-- Three.js for background effects -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div id="bg-canvas"></div>
+
+    <!-- Particle overlay -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-logo">
+            <span class="logo-icon">&lt;/&gt;</span>
+            <span class="logo-text">PMs Shipping Code</span>
+        </div>
+        <div class="nav-tabs">
+            <button class="nav-tab active" data-page="home">
+                <span class="tab-icon">&#9670;</span>
+                <span class="tab-text">Home</span>
+            </button>
+            <button class="nav-tab" data-page="goals">
+                <span class="tab-icon">&#9673;</span>
+                <span class="tab-text">Goals</span>
+            </button>
+            <button class="nav-tab" data-page="demos">
+                <span class="tab-icon">&#9654;</span>
+                <span class="tab-text">Demos</span>
+            </button>
+            <button class="nav-tab" data-page="learnings">
+                <span class="tab-icon">&#9733;</span>
+                <span class="tab-text">Learnings</span>
+            </button>
+            <button class="nav-tab" data-page="conclusions">
+                <span class="tab-icon">&#10003;</span>
+                <span class="tab-text">Conclusions</span>
+            </button>
+        </div>
+        <div class="nav-date">
+            <span class="pulse-dot"></span>
+            Week 1.5 of 2
+        </div>
+    </nav>
+
+    <!-- Page Container -->
+    <main class="page-container">
+
+        <!-- HOME PAGE -->
+        <section class="page active" id="page-home">
+            <div class="hero">
+                <div class="hero-content">
+                    <div class="hero-badge animate-in">
+                        <span class="badge-dot"></span>
+                        Sprint Midpoint Check-in
+                    </div>
+                    <h1 class="hero-title animate-in">
+                        <span class="title-line">Product Managers</span>
+                        <span class="title-line gradient-text">Shipping Code</span>
+                    </h1>
+                    <p class="hero-subtitle animate-in">
+                        Exploring the frontier where product intuition meets AI-powered development
+                    </p>
+                    <div class="hero-stats animate-in">
+                        <div class="stat-card">
+                            <div class="stat-number" data-count="15">0</div>
+                            <div class="stat-label">PRs Shipped</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" data-count="4">0</div>
+                            <div class="stat-label">Active Projects</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" data-count="3">0</div>
+                            <div class="stat-label">PMs Coding</div>
+                        </div>
+                    </div>
+                    <div class="hero-cta animate-in">
+                        <button class="cta-button primary" data-goto="goals">
+                            <span>View Sprint Goals</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+                        <button class="cta-button secondary" data-goto="demos">
+                            <span>Watch Demos</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="5 3 19 12 5 21 5 3"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="code-window animate-in">
+                        <div class="window-header">
+                            <div class="window-dots">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </div>
+                            <span class="window-title">pm_shipping_code.ts</span>
+                        </div>
+                        <div class="window-content">
+                            <pre><code><span class="code-keyword">const</span> <span class="code-var">pmCoding</span> = <span class="code-keyword">async</span> () => {
+  <span class="code-keyword">const</span> <span class="code-var">idea</span> = <span class="code-keyword">await</span> <span class="code-func">getProductInsight</span>();
+  <span class="code-keyword">const</span> <span class="code-var">code</span> = <span class="code-keyword">await</span> <span class="code-func">claudeCode</span>.<span class="code-func">generate</span>(<span class="code-var">idea</span>);
+  <span class="code-keyword">const</span> <span class="code-var">pr</span> = <span class="code-keyword">await</span> <span class="code-func">ship</span>(<span class="code-var">code</span>);
+
+  <span class="code-keyword">return</span> <span class="code-var">pr</span>.<span class="code-var">merged</span>; <span class="code-comment">// true!</span>
+};</code></pre>
+                            <div class="typing-cursor"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GOALS PAGE -->
+        <section class="page" id="page-goals">
+            <div class="page-header">
+                <span class="page-number">01</span>
+                <h2 class="page-title">Sprint Goals</h2>
+                <p class="page-subtitle">What we set out to prove in these two weeks</p>
+            </div>
+            <div class="goals-grid">
+                <div class="goal-card" data-index="1">
+                    <div class="goal-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 12l2 2 4-4"/>
+                            <circle cx="12" cy="12" r="10"/>
+                        </svg>
+                    </div>
+                    <h3>Validate the Hypothesis</h3>
+                    <p>Can Product Managers ship production-ready fixes using AI coding tools like Claude Code?</p>
+                    <div class="goal-progress">
+                        <div class="progress-bar" data-progress="75"></div>
+                        <span class="progress-text">75% confidence</span>
+                    </div>
+                </div>
+                <div class="goal-card" data-index="2">
+                    <div class="goal-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                        </svg>
+                    </div>
+                    <h3>Document the Workflow</h3>
+                    <p>Create a repeatable methodology that other PMs can follow to contribute code safely</p>
+                    <div class="goal-progress">
+                        <div class="progress-bar" data-progress="90"></div>
+                        <span class="progress-text">90% complete</span>
+                    </div>
+                </div>
+                <div class="goal-card" data-index="3">
+                    <div class="goal-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="2" y1="12" x2="22" y2="12"/>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                        </svg>
+                    </div>
+                    <h3>Identify the Boundaries</h3>
+                    <p>Determine which types of changes are feasible for PM-driven development vs. traditional engineering</p>
+                    <div class="goal-progress">
+                        <div class="progress-bar" data-progress="60"></div>
+                        <span class="progress-text">60% mapped</span>
+                    </div>
+                </div>
+                <div class="goal-card" data-index="4">
+                    <div class="goal-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="20" x2="18" y2="10"/>
+                            <line x1="12" y1="20" x2="12" y2="4"/>
+                            <line x1="6" y1="20" x2="6" y2="14"/>
+                        </svg>
+                    </div>
+                    <h3>Measure Real Impact</h3>
+                    <p>Quantify time savings, quality metrics, and business value of PM-shipped changes</p>
+                    <div class="goal-progress">
+                        <div class="progress-bar" data-progress="45"></div>
+                        <span class="progress-text">Tracking</span>
+                    </div>
+                </div>
+                <div class="goal-card" data-index="5">
+                    <div class="goal-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <h3>De-risk the Approach</h3>
+                    <p>Understand failure modes, bottlenecks, and guardrails needed for sustainable PM coding</p>
+                    <div class="goal-progress">
+                        <div class="progress-bar" data-progress="80"></div>
+                        <span class="progress-text">Key risks identified</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DEMOS PAGE -->
+        <section class="page" id="page-demos">
+            <div class="page-header">
+                <span class="page-number">02</span>
+                <h2 class="page-title">Live Demos</h2>
+                <p class="page-subtitle">What we've built with AI-assisted development</p>
+            </div>
+            <div class="demos-container">
+                <div class="demo-card featured" data-index="1">
+                    <div class="demo-status">
+                        <span class="status-dot working"></span>
+                        Working Prototype
+                    </div>
+                    <div class="demo-video">
+                        <div class="video-placeholder" data-video="field-agent">
+                            <div class="play-button">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                                    <polygon points="5 3 19 12 5 21 5 3"/>
+                                </svg>
+                            </div>
+                            <span class="video-label">Click to play demo</span>
+                        </div>
+                    </div>
+                    <div class="demo-info">
+                        <h3>Field Agent Admin Panel</h3>
+                        <p>A functional prototype for configuring Field Agent behavior through admin settings. Demonstrates how PMs can create working internal tools.</p>
+                        <div class="demo-meta">
+                            <span class="meta-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polyline points="12 6 12 12 16 14"/>
+                                </svg>
+                                2 days
+                            </span>
+                            <span class="meta-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+                                    <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+                                </svg>
+                                4 PRs
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="demo-card" data-index="2">
+                    <div class="demo-status">
+                        <span class="status-dot complete"></span>
+                        Complete
+                    </div>
+                    <div class="demo-video">
+                        <div class="video-placeholder" data-video="governance">
+                            <div class="play-button">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                                    <polygon points="5 3 19 12 5 21 5 3"/>
+                                </svg>
+                            </div>
+                            <span class="video-label">Click to play demo</span>
+                        </div>
+                    </div>
+                    <div class="demo-info">
+                        <h3>AI Governance Audit</h3>
+                        <p>Automated analysis of existing AI governance implementation. Identified gaps and generated actionable recommendations.</p>
+                        <div class="demo-meta">
+                            <span class="meta-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polyline points="12 6 12 12 16 14"/>
+                                </svg>
+                                1 day
+                            </span>
+                            <span class="meta-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                12 findings
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="demo-card" data-index="3">
+                    <div class="demo-status">
+                        <span class="status-dot shipped"></span>
+                        Shipped to Production
+                    </div>
+                    <div class="demo-video">
+                        <div class="video-placeholder" data-video="multiselect">
+                            <div class="play-button">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                                    <polygon points="5 3 19 12 5 21 5 3"/>
+                                </svg>
+                            </div>
+                            <span class="video-label">Click to play demo</span>
+                        </div>
+                    </div>
+                    <div class="demo-info">
+                        <h3>Multi-Select Dropdown Fix</h3>
+                        <p>A case study in complexity. What looked like 2 hours became 6 hours across 13 commits resolving 9 cascading bugs.</p>
+                        <div class="demo-meta">
+                            <span class="meta-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polyline points="12 6 12 12 16 14"/>
+                                </svg>
+                                6 hours
+                            </span>
+                            <span class="meta-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="4"/>
+                                    <path d="M12 2v2"/>
+                                    <path d="M12 20v2"/>
+                                    <path d="m4.93 4.93 1.41 1.41"/>
+                                    <path d="m17.66 17.66 1.41 1.41"/>
+                                    <path d="M2 12h2"/>
+                                    <path d="M20 12h2"/>
+                                    <path d="m6.34 17.66-1.41 1.41"/>
+                                    <path d="m19.07 4.93-1.41 1.41"/>
+                                </svg>
+                                13 commits
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="demo-card" data-index="4">
+                    <div class="demo-status">
+                        <span class="status-dot in-progress"></span>
+                        In Progress
+                    </div>
+                    <div class="demo-video">
+                        <div class="video-placeholder" data-video="cursor-rules">
+                            <div class="play-button">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                                    <polygon points="5 3 19 12 5 21 5 3"/>
+                                </svg>
+                            </div>
+                            <span class="video-label">Click to play demo</span>
+                        </div>
+                    </div>
+                    <div class="demo-info">
+                        <h3>Cursor Rules for Admin</h3>
+                        <p>Domain-specific AI guidance rules to help Claude understand admin panel patterns and make better decisions.</p>
+                        <div class="demo-meta">
+                            <span class="meta-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 20h9"/>
+                                    <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+                                </svg>
+                                Active development
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LEARNINGS PAGE -->
+        <section class="page" id="page-learnings">
+            <div class="page-header">
+                <span class="page-number">03</span>
+                <h2 class="page-title">Key Learnings</h2>
+                <p class="page-subtitle">What we've discovered along the way</p>
+            </div>
+            <div class="learnings-container">
+                <div class="learning-panel" data-index="1">
+                    <div class="learning-number">01</div>
+                    <div class="learning-content">
+                        <h3>PMs May Actually Be Better at AI Coding</h3>
+                        <div class="learning-detail">
+                            <p>Engineers' deep expertise can actually work against them with AI tools. <strong>PMs approach problems differently—describing what they want rather than how to build it—which aligns better with how AI coding assistants work.</strong></p>
+                            <div class="learning-quote">
+                                <span class="quote-mark">"</span>
+                                <p>As a career engineer I cannot think that way yet.</p>
+                                <span class="quote-attribution">— Engineer after watching a PM complete Field Agent control in one day</span>
+                            </div>
+                            <p class="learning-insight">The PM mindset of "describe the outcome" rather than "specify the implementation" may be a feature, not a bug, when working with AI.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="learning-panel" data-index="2">
+                    <div class="learning-number">02</div>
+                    <div class="learning-content">
+                        <h3>Negative Instructions Beat Proactive Ones</h3>
+                        <div class="learning-detail">
+                            <p>When configuring AI coding assistants (via Claude.md files), <strong>telling it what NOT to do is more effective</strong> than describing ideal behavior.</p>
+                            <div class="learning-example">
+                                <div class="example-bad">
+                                    <span class="example-label">Less Effective</span>
+                                    <code>"Always ask before pushing code"</code>
+                                </div>
+                                <div class="example-good">
+                                    <span class="example-label">More Effective</span>
+                                    <code>"NEVER push without explicit user approval"</code>
+                                </div>
+                            </div>
+                            <p class="learning-insight">The AI responds more reliably to clear prohibitions than aspirational guidance. This mirrors how we train humans on safety-critical procedures.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="learning-panel" data-index="3">
+                    <div class="learning-number">03</div>
+                    <div class="learning-content">
+                        <h3>Code Review is the Real Bottleneck</h3>
+                        <div class="learning-detail">
+                            <p>PMs can write code faster than engineers can review it. The traditional code review process assumes the author is an engineer who can iterate independently.</p>
+                            <div class="bottleneck-visual">
+                                <div class="flow-item">
+                                    <span class="flow-icon fast">PM</span>
+                                    <span class="flow-label">Writes Code</span>
+                                    <span class="flow-speed">Fast</span>
+                                </div>
+                                <div class="flow-arrow">
+                                    <svg width="40" height="24" viewBox="0 0 40 24">
+                                        <path d="M0 12h35M30 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none"/>
+                                    </svg>
+                                </div>
+                                <div class="flow-item bottleneck">
+                                    <span class="flow-icon slow">ENG</span>
+                                    <span class="flow-label">Reviews</span>
+                                    <span class="flow-speed">Blocked</span>
+                                </div>
+                            </div>
+                            <p class="learning-insight">We need different review workflows for PM-authored code—possibly automated pre-review tools like Bugbot or dedicated review slots.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="learning-panel" data-index="4">
+                    <div class="learning-number">04</div>
+                    <div class="learning-content">
+                        <h3>Scoping Down is a Legitimate Strategy</h3>
+                        <div class="learning-detail">
+                            <p>The instinct to "just fix it properly" often leads to scope creep that exceeds PM coding capabilities.</p>
+                            <div class="scope-visual">
+                                <div class="scope-bar">
+                                    <div class="scope-section pm-zone" style="width: 80%">
+                                        <span>PM can ship (80% value)</span>
+                                    </div>
+                                    <div class="scope-section eng-zone" style="width: 20%">
+                                        <span>Eng needed</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="learning-insight">Explicitly choosing a smaller scope—even if it means shipping a partial solution—is valid when it delivers user value faster. Sometimes a PM can ship the 80% solution in hours while the 100% solution waits months.</p>
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+        <!-- CONCLUSIONS PAGE -->
+        <section class="page" id="page-conclusions">
+            <div class="page-header">
+                <span class="page-number">04</span>
+                <h2 class="page-title">Early Conclusions</h2>
+                <p class="page-subtitle">What we believe to be true based on our findings</p>
+            </div>
+            <div class="conclusions-container">
+                <div class="conclusion-card" data-index="1">
+                    <div class="conclusion-header">
+                        <div class="conclusion-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                            </svg>
+                        </div>
+                        <span class="conclusion-label">Conclusion #1</span>
+                    </div>
+                    <h3>PMs Can Produce ROI-Positive Prototypes</h3>
+                    <div class="conclusion-body">
+                        <p>The governance framework audit alone demonstrates that PMs with AI tools can deliver meaningful technical output. The work completed would have taken engineering time that wasn't available.</p>
+                        <div class="conclusion-highlight">
+                            <span class="highlight-text">The question isn't "can PMs code?" but "what should PMs code?"</span>
+                        </div>
+                        <p>Even if PM code requires more review cycles, the net ROI is positive for certain categories of work—particularly internal tools, audits, and well-scoped bug fixes.</p>
+                    </div>
+                    <div class="conclusion-verdict">
+                        <span class="verdict-label">Verdict</span>
+                        <span class="verdict-value positive">Validated</span>
+                    </div>
+                </div>
+
+                <div class="conclusion-card" data-index="2">
+                    <div class="conclusion-header">
+                        <div class="conclusion-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="M2 17l10 5 10-5"/>
+                                <path d="M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <span class="conclusion-label">Conclusion #2</span>
+                    </div>
+                    <h3>AI Accelerates Coding But Doesn't Simplify Engineering</h3>
+                    <div class="conclusion-body">
+                        <p>Claude Code dramatically reduces the barrier to writing syntactically correct code. However, <strong>understanding system architecture, anticipating edge cases, and navigating organizational code patterns remain genuinely difficult.</strong></p>
+                        <div class="complexity-visual">
+                            <div class="complexity-item">
+                                <span class="complexity-label">Writing Code</span>
+                                <div class="complexity-bar easy"></div>
+                                <span class="complexity-level">Easier with AI</span>
+                            </div>
+                            <div class="complexity-item">
+                                <span class="complexity-label">Understanding Systems</span>
+                                <div class="complexity-bar hard"></div>
+                                <span class="complexity-level">Still Hard</span>
+                            </div>
+                        </div>
+                        <p>The multi-select dropdown case study proves this: what looked like a 2-hour fix became 6 hours because the complexity wasn't in the code—it was in understanding how the system behaves.</p>
+                    </div>
+                    <div class="conclusion-verdict">
+                        <span class="verdict-label">Verdict</span>
+                        <span class="verdict-value nuanced">Nuanced Reality</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="next-steps">
+                <h3>What's Next?</h3>
+                <div class="steps-grid">
+                    <div class="step-item">
+                        <span class="step-number">1</span>
+                        <span class="step-text">Complete remaining demos</span>
+                    </div>
+                    <div class="step-item">
+                        <span class="step-number">2</span>
+                        <span class="step-text">Document final workflow</span>
+                    </div>
+                    <div class="step-item">
+                        <span class="step-number">3</span>
+                        <span class="step-text">Present findings to leadership</span>
+                    </div>
+                    <div class="step-item">
+                        <span class="step-number">4</span>
+                        <span class="step-text">Plan pilot expansion</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Easter Egg Modal -->
+    <div class="easter-egg-modal" id="easterEggModal">
+        <div class="modal-backdrop"></div>
+        <div class="easter-egg-content">
+            <button class="modal-close">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+            <div class="easter-egg-header">
+                <span class="easter-egg-icon">&lt;/&gt;</span>
+                <h2>How This Site Was Built</h2>
+                <p class="easter-egg-subtitle">A meta moment about PMs shipping code</p>
+            </div>
+            <div class="easter-egg-body">
+                <p class="easter-egg-intro">This website you're looking at? It was built the same way we're exploring in this sprint.</p>
+
+                <div class="easter-egg-stats">
+                    <div class="easter-stat">
+                        <div class="easter-stat-number">4</div>
+                        <div class="easter-stat-label">Messages sent</div>
+                    </div>
+                    <div class="easter-stat">
+                        <div class="easter-stat-number">10</div>
+                        <div class="easter-stat-label">Minutes elapsed</div>
+                    </div>
+                    <div class="easter-stat">
+                        <div class="easter-stat-number">~$3</div>
+                        <div class="easter-stat-label">API cost</div>
+                    </div>
+                </div>
+
+                <div class="easter-egg-timeline">
+                    <div class="timeline-item">
+                        <span class="timeline-marker">1</span>
+                        <div class="timeline-content">
+                            <strong>"Here's a folder with some PDFs..."</strong>
+                            <p>Pointed Claude Code at the project documents and described the leadership check-in format needed.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-marker">2</span>
+                        <div class="timeline-content">
+                            <strong>"Make it way more animated"</strong>
+                            <p>Asked for multi-page navigation, GSAP animations, and video support.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-marker">3</span>
+                        <div class="timeline-content">
+                            <strong>"The animations are funky"</strong>
+                            <p>Gave feedback + shared a new learning from Chase. Both fixed in one response.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-marker">4</span>
+                        <div class="timeline-content">
+                            <strong>"Add an Easter egg"</strong>
+                            <p>You're looking at it.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="easter-egg-reflection">
+                    <p><strong>The irony isn't lost on us.</strong></p>
+                    <p>A PM just shipped a production-ready website about PMs shipping code—using exactly the workflow we're researching. No design mockups. No engineering tickets. No sprint planning.</p>
+                    <p>Just a conversation.</p>
+                </div>
+            </div>
+            <div class="easter-egg-footer">
+                <span class="easter-egg-hint">Press <kbd>Esc</kbd> to close</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Modal -->
+    <div class="video-modal" id="videoModal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <button class="modal-close">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+            <div class="video-container">
+                <video id="demoVideo" controls>
+                    <source src="" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
