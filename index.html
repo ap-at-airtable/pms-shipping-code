@@ -371,28 +371,54 @@
                 <p class="page-subtitle">What we've discovered along the way</p>
             </div>
             <div class="learnings-container">
-                <div class="learning-panel" data-index="1">
+                <!-- Learning 1: Prototyping (FEATURED) - combines old 7 + 8 -->
+                <div class="learning-panel featured" data-index="1">
                     <div class="learning-number">01</div>
                     <div class="learning-content">
-                        <h3>PMs Approach AI Coding Differently</h3>
+                        <h3>Prototyping Changes the Game</h3>
                         <div class="learning-detail">
-                            <p>Engineers and PMs bring different mental models to AI tools. <strong>PMs naturally describe what they want rather than how to build it—which happens to align well with how AI coding assistants work.</strong></p>
+                            <p>The workflow shift from "write PRD, go through design" to "prototype first, then refine with design/eng" produces better starting points and faster iteration. <strong>This is the biggest unlock of the sprint.</strong></p>
                             <div class="learning-quote">
                                 <span class="quote-mark">"</span>
-                                <p>It was incredibly helpful to see how you approach using Claude Code as it is a departure from how I solve building as an engineer.</p>
-                                <span class="quote-attribution">— Engineer after pairing with a PM on AI coding</span>
+                                <p>This was way better than writing a PRD and going through design. Now the starting point with which I go to design is much stronger.</p>
+                                <span class="quote-attribution">— PM after the prototyping spike</span>
                             </div>
-                            <p class="learning-insight">Different approaches can be complementary. Engineers and PMs may each bring unique strengths to AI-assisted development.</p>
+                            <p>The Governance spike proved this works even in our most complex areas—<strong>permissions and licensing, arguably our most complicated domain.</strong> If it works there, it likely works elsewhere.</p>
+                            <p class="learning-insight">Instead of describing what you want, you can show working code. Engineers receive a functional starting point instead of static mockups.</p>
                         </div>
                     </div>
                 </div>
 
+                <!-- Learning 2: PM-AI Fit - combines old 1 + 6 -->
                 <div class="learning-panel" data-index="2">
                     <div class="learning-number">02</div>
                     <div class="learning-content">
-                        <h3>Negative Instructions Beat Proactive Ones</h3>
+                        <h3>Claude Code Accelerates All PM Work</h3>
                         <div class="learning-detail">
-                            <p>When configuring AI coding assistants (via Claude.md files), <strong>telling it what NOT to do is more effective</strong> than describing ideal behavior.</p>
+                            <p>PMs naturally describe what they want rather than how to build it—which aligns well with how AI coding assistants work. <strong>This extends beyond coding to all PM workflows: planning artifacts, PRDs, support triage.</strong></p>
+                            <div class="learning-quote">
+                                <span class="quote-mark">"</span>
+                                <p>It was incredibly helpful to see how you approach using Claude Code as it is a departure from how I solve building as an engineer.</p>
+                                <span class="quote-attribution">— Engineer after pairing with a PM</span>
+                            </div>
+                            <div class="learning-example">
+                                <div class="example-good">
+                                    <span class="example-label">The PM Workflow Loop</span>
+                                    <code>Plan in .md → Generate output → Test/iterate → Ship faster</code>
+                                </div>
+                            </div>
+                            <p class="learning-insight">Engineers and PMs bring complementary strengths to AI-assisted development. The same approach works for specs, support analysis, and decision documents.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Learning 3: New Habits - combines old 2 + 5 -->
+                <div class="learning-panel" data-index="3">
+                    <div class="learning-number">03</div>
+                    <div class="learning-content">
+                        <h3>Effective AI Requires New Habits</h3>
+                        <div class="learning-detail">
+                            <p>Success with AI coding requires specific practices that aren't obvious at first.</p>
                             <div class="learning-example">
                                 <div class="example-bad">
                                     <span class="example-label">Less Effective</span>
@@ -403,15 +429,18 @@
                                     <code>"NEVER push without explicit user approval"</code>
                                 </div>
                             </div>
-                            <p class="learning-insight">The AI responds more reliably to clear prohibitions than aspirational guidance. This mirrors how we train humans on safety-critical procedures.</p>
+                            <p><strong>Negative instructions beat proactive ones.</strong> The AI responds more reliably to clear prohibitions than aspirational guidance.</p>
+                            <p><strong>Keep a stable plan doc outside Claude.</strong> Sessions compact, crash, or need to restart. Without an external plan.md, you lose context and have to re-explain everything.</p>
+                            <p class="learning-insight">Your plan doc becomes the source of truth. When Claude compacts, you can paste it back in and pick up where you left off.</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="learning-panel" data-index="3">
-                    <div class="learning-number">03</div>
+                <!-- Learning 4: Bottlenecks - combines old 3 + 4 -->
+                <div class="learning-panel" data-index="4">
+                    <div class="learning-number">04</div>
                     <div class="learning-content">
-                        <h3>Code Review is the Real Bottleneck</h3>
+                        <h3>The Bottleneck Isn't PM Skills</h3>
                         <div class="learning-detail">
                             <p>PMs can write code faster than engineers can review it. The traditional code review process assumes the author is an engineer who can iterate independently.</p>
                             <div class="bottleneck-visual">
@@ -431,105 +460,15 @@
                                     <span class="flow-speed">Blocked</span>
                                 </div>
                             </div>
-                            <p class="learning-insight">We need different review workflows for PM-authored code—possibly automated pre-review tools like Bugbot or dedicated review slots.</p>
+                            <p><strong>Scoping down is a legitimate strategy.</strong> A PM can often ship the 80% solution in hours while the 100% solution waits months in the backlog.</p>
+                            <p class="learning-insight">We need different review workflows for PM-authored code—possibly automated pre-review tools or dedicated review slots.</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="learning-panel" data-index="4">
-                    <div class="learning-number">04</div>
-                    <div class="learning-content">
-                        <h3>Scoping Down is a Legitimate Strategy</h3>
-                        <div class="learning-detail">
-                            <p>The instinct to "just fix it properly" often leads to scope creep that exceeds PM coding capabilities.</p>
-                            <div class="scope-visual">
-                                <div class="scope-bar">
-                                    <div class="scope-section pm-zone" style="width: 80%">
-                                        <span>PM can ship (80% value)</span>
-                                    </div>
-                                    <div class="scope-section eng-zone" style="width: 20%">
-                                        <span>Eng needed</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="learning-insight">Explicitly choosing a smaller scope—even if it means shipping a partial solution—is valid when it delivers user value faster. Sometimes a PM can ship the 80% solution in hours while the 100% solution waits months.</p>
-                        </div>
-                    </div>
-                </div>
-
+                <!-- Learning 5: What's Blocking Scale - kept intact -->
                 <div class="learning-panel" data-index="5">
                     <div class="learning-number">05</div>
-                    <div class="learning-content">
-                        <h3>Keep a Stable Plan Doc Outside Claude</h3>
-                        <div class="learning-detail">
-                            <p>Claude sessions compact, crash, or need to restart. <strong>Without an external plan document, you lose context and have to re-explain everything.</strong></p>
-                            <div class="learning-example">
-                                <div class="example-bad">
-                                    <span class="example-label">Pain Point</span>
-                                    <code>"Had to start/end many sessions and kept losing context"</code>
-                                </div>
-                                <div class="example-good">
-                                    <span class="example-label">Solution</span>
-                                    <code>Maintain a plan.md file that survives session restarts</code>
-                                </div>
-                            </div>
-                            <p class="learning-insight">Your plan doc becomes the source of truth. When Claude compacts or you need a fresh session, you can paste the plan back in and pick up where you left off.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="learning-panel" data-index="6">
-                    <div class="learning-number">06</div>
-                    <div class="learning-content">
-                        <h3>Claude Code Accelerates All PM Workflows</h3>
-                        <div class="learning-detail">
-                            <p>Beyond coding, Claude Code with Hyperbase context accelerates traditional PM work too. <strong>Planning artifacts, PRDs, support triage—all benefit from .md files and the plan → output → test loop.</strong></p>
-                            <div class="learning-example">
-                                <div class="example-good">
-                                    <span class="example-label">PM Workflow Acceleration</span>
-                                    <code>Plan in .md → Generate output → Test/iterate → Ship faster</code>
-                                </div>
-                            </div>
-                            <p class="learning-insight">The same approach that works for coding—structured .md files, iterative loops, AI assistance—applies to specs, support analysis, and decision documents.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="learning-panel featured" data-index="7">
-                    <div class="learning-number">07</div>
-                    <div class="learning-content">
-                        <h3>Prototyping Accelerates Feature Development</h3>
-                        <div class="learning-detail">
-                            <p>The workflow shift from "write PRD, go through design" to "prototype first, then refine with design/eng" produces better starting points and faster iteration. <strong>This may be the biggest unlock of the sprint.</strong></p>
-                            <div class="learning-quote">
-                                <span class="quote-mark">"</span>
-                                <p>This was way better than writing a PRD and going through design. Now the starting point with which I go to design is much stronger.</p>
-                                <span class="quote-attribution">— PM after the prototyping spike</span>
-                            </div>
-                            <p class="learning-insight">Instead of describing what you want in a document, you can show working code. Engineers receive a functional starting point instead of static mockups.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="learning-panel" data-index="8">
-                    <div class="learning-number">08</div>
-                    <div class="learning-content">
-                        <h3>This Works in Our Most Complex Areas</h3>
-                        <div class="learning-detail">
-                            <p>The parallel Governance spike tested AI-assisted development against <strong>permissions and licensing—arguably our most complicated domain.</strong> It worked.</p>
-                            <div class="learning-example">
-                                <div class="example-good">
-                                    <span class="example-label">Case Study: Governance Spike</span>
-                                    <code>PM completed a feature audit across the entire governance framework—navigating permissions, licensing, and enterprise controls</code>
-                                </div>
-                            </div>
-                            <p class="learning-insight">If it works in governance, it likely works elsewhere. Complexity isn't the barrier we assumed.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="learning-panel" data-index="9">
-                    <div class="learning-number">09</div>
                     <div class="learning-content">
                         <h3>What's Blocking Scale: Codebase Isn't AI-Ready</h3>
                         <div class="learning-detail">
