@@ -618,13 +618,42 @@ function initVideoModal() {
     closeBtn.addEventListener('click', closeModal);
     backdrop.addEventListener('click', closeModal);
 
+    // Track current demo index for navigation
+    let currentDemoIndex = 0;
+    const demoKeys = Object.keys(demoData);
+
+    function navigateDemo(direction) {
+        let newIndex = currentDemoIndex + direction;
+        if (newIndex < 0) newIndex = demoKeys.length - 1;
+        if (newIndex >= demoKeys.length) newIndex = 0;
+        currentDemoIndex = newIndex;
+        openDemoDetail(demoKeys[currentDemoIndex]);
+    }
+
+    // Update openDemoDetail to track index
+    const originalOpenDemoDetail = openDemoDetail;
+    openDemoDetail = function(key) {
+        currentDemoIndex = demoKeys.indexOf(key);
+        originalOpenDemoDetail(key);
+    };
+
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal.classList.contains('active')) {
+        if (!modal.classList.contains('active')) return;
+
+        if (e.key === 'Escape') {
             closeModal();
-        }
-        if (modal.classList.contains('active') && detailCarousel.style.display !== 'none') {
-            if (e.key === 'ArrowLeft') goToSlide(currentSlide - 1);
-            if (e.key === 'ArrowRight') goToSlide(currentSlide + 1);
+        } else if (e.key === 'ArrowLeft') {
+            if (detailCarousel.style.display !== 'none' && totalSlides > 1) {
+                goToSlide(currentSlide - 1);
+            } else {
+                navigateDemo(-1);
+            }
+        } else if (e.key === 'ArrowRight') {
+            if (detailCarousel.style.display !== 'none' && totalSlides > 1) {
+                goToSlide(currentSlide + 1);
+            } else {
+                navigateDemo(1);
+            }
         }
     });
 }

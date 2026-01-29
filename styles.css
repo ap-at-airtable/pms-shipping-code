@@ -1938,6 +1938,29 @@ body {
     font-weight: 500;
 }
 
+.demo-detail-footer {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid var(--card-border);
+    text-align: center;
+}
+
+.demo-detail-hint {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+}
+
+.demo-detail-hint kbd {
+    display: inline-block;
+    padding: 3px 8px;
+    background: var(--glass);
+    border: 1px solid var(--card-border);
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    margin: 0 2px;
+}
+
 /* =====================
    LEARNING DETAIL MODAL
    ===================== */
