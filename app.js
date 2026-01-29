@@ -643,17 +643,16 @@ function initVideoModal() {
         if (e.key === 'Escape') {
             closeModal();
         } else if (e.key === 'ArrowLeft') {
-            if (detailCarousel.style.display !== 'none' && totalSlides > 1) {
-                goToSlide(currentSlide - 1);
-            } else {
-                navigateDemo(-1);
-            }
+            // Always navigate between demos
+            navigateDemo(-1);
         } else if (e.key === 'ArrowRight') {
-            if (detailCarousel.style.display !== 'none' && totalSlides > 1) {
-                goToSlide(currentSlide + 1);
-            } else {
-                navigateDemo(1);
-            }
+            // Always navigate between demos
+            navigateDemo(1);
+        } else if (e.key === 'ArrowUp' && detailCarousel.style.display !== 'none' && totalSlides > 1) {
+            // Use up/down for carousel slides
+            goToSlide(currentSlide - 1);
+        } else if (e.key === 'ArrowDown' && detailCarousel.style.display !== 'none' && totalSlides > 1) {
+            goToSlide(currentSlide + 1);
         }
     });
 }
