@@ -354,54 +354,276 @@ function animateProgressBars() {
 }
 
 /* =====================
-   VIDEO MODAL
+   DEMO DETAIL MODAL
    ===================== */
 function initVideoModal() {
-    const modal = document.getElementById('videoModal');
-    const video = document.getElementById('demoVideo');
-    const videoPlaceholders = document.querySelectorAll('.video-placeholder');
+    const modal = document.getElementById('demoDetailModal');
     const closeBtn = modal.querySelector('.modal-close');
     const backdrop = modal.querySelector('.modal-backdrop');
+    const detailVideo = document.getElementById('detailVideo');
+    const detailCarousel = document.getElementById('detailCarousel');
+    const carouselTrack = document.getElementById('carouselTrack');
+    const carouselDots = document.getElementById('carouselDots');
+    const prevBtn = document.getElementById('carouselPrev');
+    const nextBtn = document.getElementById('carouselNext');
 
-    // Video sources mapping (placeholder - will be replaced with actual videos)
-    const videoSources = {
-        'field-agent': 'videos/field-agent-demo.mp4',
-        'governance': 'videos/governance-demo.mp4',
-        'multiselect': 'videos/multiselect-demo.mp4',
-        'cursor-rules': 'videos/cursor-rules-demo.mp4'
+    let currentSlide = 0;
+    let totalSlides = 0;
+
+    // Demo data with videos and screenshots
+    const demoData = {
+        'omni-error': {
+            type: 'video',
+            video: 'videos/omni-error-analysis.mp4',
+            title: 'Automations Omni Error Analysis',
+            status: 'working',
+            statusText: 'Working Prototype',
+            description: 'Gives Omni context into failed automation runs—trigger, actions, inputs/outputs, and error messages. Provides insights into why automations fail and recommendations for how to fix them.',
+            meta: [{ icon: 'clipboard', text: 'PR ready' }],
+            author: 'David Lange'
+        },
+        'consumer-app': {
+            type: 'video',
+            video: 'videos/consumer-app-demo.mov',
+            title: 'Airtable Consumer App (B2B2C)',
+            status: 'working',
+            statusText: 'Concept Prototype',
+            description: 'Exploring what Airtable could look like for building single-tenant end user apps. Familiar collaborative base + Omni interface building, with end user analytics and revenue tracking.',
+            meta: [{ icon: 'layers', text: 'Full prototype' }],
+            author: 'Chase Thompson'
+        },
+        'automation-sections': {
+            type: 'video',
+            video: 'videos/automation-sections.mp4',
+            title: 'Create Automation to Section',
+            status: 'working',
+            statusText: 'PR Ready',
+            description: 'New automations now show a sub-menu to choose which section to add to. Also adds "Create automation" option directly in section menus. No more dragging to organize.',
+            meta: [{ icon: 'clipboard', text: 'PR ready' }],
+            author: 'David Lange'
+        },
+        'field-agent': {
+            type: 'screenshots',
+            screenshots: [
+                'images/field-agent.png',
+                'images/field-agent-2.png',
+                'images/field-agent-3.png',
+                'images/field-agent-4.png',
+                'images/field-agent-5.png'
+            ],
+            title: 'Field Agent Admin Panel Control',
+            status: 'working',
+            statusText: 'Working Prototype',
+            description: 'Enterprise governance toggle for Field Agents. Sony needs this to enable AI—originally estimated at 2-3 weeks of engineering. Full stack: feature flag, schema, DB migration, CRUD handler, permission checks, admin UI.',
+            meta: [
+                { icon: 'clock', text: '~2 hours' },
+                { icon: 'dollar', text: '$17 API cost' },
+                { icon: 'code', text: '1,416 lines' }
+            ],
+            author: 'Chase Thompson'
+        },
+        'bulk-invites': {
+            type: 'screenshots',
+            screenshots: ['images/bulk-invites.png'],
+            title: 'Admin Bulk Manage Pending Invites',
+            status: 'in-progress',
+            statusText: 'In Progress',
+            description: 'Customer request from Roche. Bulk selection, resend, cancel, and filters for pending invites in Enterprise Admin Panel. Backend handlers, filter components, confirmation modals.',
+            meta: [
+                { icon: 'clock', text: '~3 hours' },
+                { icon: 'dollar', text: '$22 API cost' },
+                { icon: 'code', text: '1,436 lines' }
+            ],
+            author: 'Chase Thompson'
+        },
+        'multiselect': {
+            type: 'video',
+            video: 'videos/multiselect-demo.mp4',
+            title: 'Multi-Select Dropdown Fix',
+            status: 'shipped',
+            statusText: 'Shipped to Production',
+            description: 'A case study in complexity. What looked like 2 hours became 6 hours across 13 commits resolving 9 cascading bugs.',
+            meta: [
+                { icon: 'clock', text: '6 hours' },
+                { icon: 'commits', text: '13 commits' }
+            ],
+            author: 'AP'
+        },
+        'search-autocomplete': {
+            type: 'screenshots',
+            screenshots: [
+                'images/search-autocomplete.png',
+                'images/search-autocomplete-2.png'
+            ],
+            title: 'Search Autocomplete App Names',
+            status: 'working',
+            statusText: 'Working Prototype',
+            description: 'Added app name to search autocomplete on homescreen when returning just the interface. Solves confusion about why results match on base name.',
+            meta: [{ icon: 'search', text: 'UX improvement' }],
+            author: 'Jocelyn Lin'
+        }
     };
 
-    videoPlaceholders.forEach(placeholder => {
-        placeholder.addEventListener('click', () => {
-            const videoKey = placeholder.dataset.video;
-            const source = videoSources[videoKey];
+    // Handle demo card clicks
+    const demoCards = document.querySelectorAll('.demo-card');
+    demoCards.forEach(card => {
+        card.addEventListener('click', (e) => {
+            // Find the video key from video-preview or demo-screenshot
+            const preview = card.querySelector('.video-preview, .demo-screenshot');
+            if (!preview) return;
 
-            if (source) {
-                video.src = source;
-                openModal();
+            const videoKey = preview.dataset.video || findDemoKey(card);
+            if (videoKey && demoData[videoKey]) {
+                openDemoDetail(videoKey);
             }
         });
     });
 
-    function openModal() {
+    function findDemoKey(card) {
+        const img = card.querySelector('.demo-screenshot img');
+        if (img) {
+            const src = img.src;
+            if (src.includes('field-agent')) return 'field-agent';
+            if (src.includes('bulk-invites')) return 'bulk-invites';
+            if (src.includes('search-autocomplete')) return 'search-autocomplete';
+        }
+        return null;
+    }
+
+    // Handle video previews (hover to play)
+    const videoPreviews = document.querySelectorAll('.video-preview');
+    videoPreviews.forEach(preview => {
+        const video = preview.querySelector('video');
+        if (!video) return;
+
+        preview.addEventListener('mouseenter', () => {
+            video.currentTime = 0;
+            video.play().catch(() => {});
+        });
+
+        preview.addEventListener('mouseleave', () => {
+            video.pause();
+        });
+    });
+
+    function openDemoDetail(key) {
+        const data = demoData[key];
+        if (!data) return;
+
+        // Set title
+        document.getElementById('detailTitle').textContent = data.title;
+
+        // Set status
+        const statusEl = document.getElementById('detailStatus');
+        statusEl.textContent = data.statusText;
+        statusEl.className = 'demo-detail-status ' + data.status;
+
+        // Set description
+        document.getElementById('detailDescription').textContent = data.description;
+
+        // Set author
+        const metaEl = document.getElementById('detailMeta');
+        metaEl.innerHTML = `<span class="demo-detail-author">${data.author}</span>`;
+
+        // Show video or carousel
+        if (data.type === 'video') {
+            detailVideo.style.display = 'block';
+            detailCarousel.style.display = 'none';
+            detailVideo.src = data.video;
+        } else {
+            detailVideo.style.display = 'none';
+            detailCarousel.style.display = 'block';
+            setupCarousel(data.screenshots);
+        }
+
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
+
+        if (data.type === 'video') {
+            detailVideo.play().catch(() => {});
+        }
+    }
+
+    function setupCarousel(screenshots) {
+        currentSlide = 0;
+        totalSlides = screenshots.length;
+
+        // Create slides
+        carouselTrack.innerHTML = screenshots.map(src => `
+            <div class="carousel-slide">
+                <img src="${src}" alt="Screenshot">
+            </div>
+        `).join('');
+
+        // Create dots
+        carouselDots.innerHTML = screenshots.map((_, i) => `
+            <span class="carousel-dot ${i === 0 ? 'active' : ''}" data-index="${i}"></span>
+        `).join('');
+
+        // Add dot click handlers
+        carouselDots.querySelectorAll('.carousel-dot').forEach(dot => {
+            dot.addEventListener('click', () => {
+                goToSlide(parseInt(dot.dataset.index));
+            });
+        });
+
+        updateCarousel();
+    }
+
+    function goToSlide(index) {
+        currentSlide = index;
+        if (currentSlide < 0) currentSlide = totalSlides - 1;
+        if (currentSlide >= totalSlides) currentSlide = 0;
+        updateCarousel();
+    }
+
+    function updateCarousel() {
+        carouselTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+        carouselDots.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentSlide);
+        });
+    }
+
+    prevBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        goToSlide(currentSlide - 1);
+    });
+
+    nextBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        goToSlide(currentSlide + 1);
+    });
+
+    function getIconPath(icon) {
+        const icons = {
+            'clock': '<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>',
+            'dollar': '<path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>',
+            'code': '<polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>',
+            'clipboard': '<path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>',
+            'layers': '<path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>',
+            'search': '<circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>',
+            'commits': '<circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>'
+        };
+        return icons[icon] || icons['clock'];
     }
 
     function closeModal() {
         modal.classList.remove('active');
         document.body.style.overflow = '';
-        video.pause();
-        video.src = '';
+        detailVideo.pause();
+        detailVideo.src = '';
     }
 
     closeBtn.addEventListener('click', closeModal);
     backdrop.addEventListener('click', closeModal);
 
-    // Close on escape key
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && modal.classList.contains('active')) {
             closeModal();
+        }
+        if (modal.classList.contains('active') && detailCarousel.style.display !== 'none') {
+            if (e.key === 'ArrowLeft') goToSlide(currentSlide - 1);
+            if (e.key === 'ArrowRight') goToSlide(currentSlide + 1);
         }
     });
 }
@@ -447,6 +669,7 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.goal-card, .demo-card, .learning-panel, .conclusion-card').forEach(el => {
     observer.observe(el);
 });
+
 
 /* =====================
    KEYBOARD NAVIGATION

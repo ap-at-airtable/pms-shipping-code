@@ -88,7 +88,7 @@
                             <div class="stat-label">Active Projects</div>
                         </div>
                         <div class="stat-card">
-                            <div class="stat-number" data-count="3">0</div>
+                            <div class="stat-number" data-count="4">0</div>
                             <div class="stat-label">PMs Coding</div>
                         </div>
                     </div>
@@ -139,78 +139,50 @@
                 <h2 class="page-title">Sprint Goals</h2>
                 <p class="page-subtitle">What we set out to prove in these two weeks</p>
             </div>
-            <div class="goals-grid">
-                <div class="goal-card" data-index="1">
-                    <div class="goal-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M9 12l2 2 4-4"/>
-                            <circle cx="12" cy="12" r="10"/>
-                        </svg>
-                    </div>
-                    <h3>Validate the Hypothesis</h3>
-                    <p>Can Product Managers ship production-ready fixes using AI coding tools like Claude Code?</p>
-                    <div class="goal-progress">
-                        <div class="progress-bar" data-progress="75"></div>
-                        <span class="progress-text">75% confidence</span>
+            <div class="goals-group">
+                <div class="goals-group-header achieved">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                        <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                    <span>Achieved</span>
+                </div>
+                <div class="goals-grid">
+                    <div class="goal-card achieved" data-index="1">
+                        <span class="goal-number">1</span>
+                        <h3>Validate the Hypothesis</h3>
+                        <p>Can PMs ship production-ready fixes using AI tools?</p>
                     </div>
                 </div>
-                <div class="goal-card" data-index="2">
-                    <div class="goal-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                            <polyline points="14 2 14 8 20 8"/>
-                            <line x1="16" y1="13" x2="8" y2="13"/>
-                            <line x1="16" y1="17" x2="8" y2="17"/>
-                        </svg>
-                    </div>
-                    <h3>Document the Workflow</h3>
-                    <p>Create a repeatable methodology that other PMs can follow to contribute code safely</p>
-                    <div class="goal-progress">
-                        <div class="progress-bar" data-progress="90"></div>
-                        <span class="progress-text">90% complete</span>
-                    </div>
+            </div>
+
+            <div class="goals-group">
+                <div class="goals-group-header in-progress">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    <span>In Progress</span>
                 </div>
-                <div class="goal-card" data-index="3">
-                    <div class="goal-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"/>
-                            <line x1="2" y1="12" x2="22" y2="12"/>
-                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-                        </svg>
+                <div class="goals-grid">
+                    <div class="goal-card in-progress" data-index="2">
+                        <span class="goal-number">2</span>
+                        <h3>Document the Workflow</h3>
+                        <p>Create a repeatable methodology for PM code contributions</p>
                     </div>
-                    <h3>Identify the Boundaries</h3>
-                    <p>Determine which types of changes are feasible for PM-driven development vs. traditional engineering</p>
-                    <div class="goal-progress">
-                        <div class="progress-bar" data-progress="60"></div>
-                        <span class="progress-text">60% mapped</span>
+                    <div class="goal-card in-progress" data-index="3">
+                        <span class="goal-number">3</span>
+                        <h3>Identify the Boundaries</h3>
+                        <p>What's feasible for PMs vs. traditional engineering?</p>
                     </div>
-                </div>
-                <div class="goal-card" data-index="4">
-                    <div class="goal-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <line x1="18" y1="20" x2="18" y2="10"/>
-                            <line x1="12" y1="20" x2="12" y2="4"/>
-                            <line x1="6" y1="20" x2="6" y2="14"/>
-                        </svg>
+                    <div class="goal-card in-progress" data-index="4">
+                        <span class="goal-number">4</span>
+                        <h3>Measure Real Impact</h3>
+                        <p>Quantify time savings and business value</p>
                     </div>
-                    <h3>Measure Real Impact</h3>
-                    <p>Quantify time savings, quality metrics, and business value of PM-shipped changes</p>
-                    <div class="goal-progress">
-                        <div class="progress-bar" data-progress="45"></div>
-                        <span class="progress-text">Tracking</span>
-                    </div>
-                </div>
-                <div class="goal-card" data-index="5">
-                    <div class="goal-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                        </svg>
-                    </div>
-                    <h3>De-risk the Approach</h3>
-                    <p>Understand failure modes, bottlenecks, and guardrails needed for sustainable PM coding</p>
-                    <div class="goal-progress">
-                        <div class="progress-bar" data-progress="80"></div>
-                        <span class="progress-text">Key risks identified</span>
+                    <div class="goal-card in-progress" data-index="5">
+                        <span class="goal-number">5</span>
+                        <h3>De-risk the Approach</h3>
+                        <p>Understand failure modes and guardrails needed</p>
                     </div>
                 </div>
             </div>
@@ -224,173 +196,163 @@
                 <p class="page-subtitle">What we've built with AI-assisted development</p>
             </div>
             <div class="demos-container">
-                <div class="demo-card featured" data-index="1">
-                    <div class="demo-status">
-                        <span class="status-dot working"></span>
-                        Working Prototype
-                    </div>
-                    <div class="demo-video">
-                        <div class="video-placeholder" data-video="field-agent">
-                            <div class="play-button">
-                                <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
-                                    <polygon points="5 3 19 12 5 21 5 3"/>
-                                </svg>
-                            </div>
-                            <span class="video-label">Click to play demo</span>
-                        </div>
-                    </div>
-                    <div class="demo-info">
-                        <h3>Field Agent Admin Panel Control</h3>
-                        <p>Enterprise governance toggle for Field Agents. Sony needs this to enable AI—originally estimated at 2-3 weeks of engineering. Full stack: feature flag, schema, DB migration, CRUD handler, permission checks, admin UI.</p>
-                        <div class="demo-meta">
-                            <span class="meta-item">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"/>
-                                    <polyline points="12 6 12 12 16 14"/>
-                                </svg>
-                                ~2 hours
-                            </span>
-                            <span class="meta-item">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-                                </svg>
-                                $17 API cost
-                            </span>
-                            <span class="meta-item">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="16 18 22 12 16 6"/>
-                                    <polyline points="8 6 2 12 8 18"/>
-                                </svg>
-                                1,416 lines
-                            </span>
-                        </div>
-                        <div class="demo-author">Chase Thompson</div>
-                    </div>
-                </div>
-
-                <div class="demo-card" data-index="2">
-                    <div class="demo-status">
-                        <span class="status-dot in-progress"></span>
-                        In Progress
-                    </div>
-                    <div class="demo-video">
-                        <div class="video-placeholder" data-video="bulk-invites">
-                            <div class="play-button">
-                                <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
-                                    <polygon points="5 3 19 12 5 21 5 3"/>
-                                </svg>
-                            </div>
-                            <span class="video-label">Click to play demo</span>
-                        </div>
-                    </div>
-                    <div class="demo-info">
-                        <h3>Admin Bulk Manage Pending Invites</h3>
-                        <p>Customer request from Roche. Bulk selection, resend, cancel, and filters for pending invites in Enterprise Admin Panel. Backend handlers, filter components, confirmation modals.</p>
-                        <div class="demo-meta">
-                            <span class="meta-item">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"/>
-                                    <polyline points="12 6 12 12 16 14"/>
-                                </svg>
-                                ~3 hours
-                            </span>
-                            <span class="meta-item">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-                                </svg>
-                                $22 API cost
-                            </span>
-                            <span class="meta-item">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="16 18 22 12 16 6"/>
-                                    <polyline points="8 6 2 12 8 18"/>
-                                </svg>
-                                1,436 lines
-                            </span>
-                        </div>
-                        <div class="demo-author">Chase Thompson</div>
-                    </div>
-                </div>
-
-                <div class="demo-card" data-index="3">
-                    <div class="demo-status">
-                        <span class="status-dot complete"></span>
-                        Complete
-                    </div>
-                    <div class="demo-video">
-                        <div class="video-placeholder" data-video="governance">
-                            <div class="play-button">
-                                <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
-                                    <polygon points="5 3 19 12 5 21 5 3"/>
-                                </svg>
-                            </div>
-                            <span class="video-label">Click to play demo</span>
-                        </div>
-                    </div>
-                    <div class="demo-info">
-                        <h3>AI Governance Audit</h3>
-                        <p>Automated analysis of existing AI governance implementation. Identified gaps and generated actionable recommendations without engineering time.</p>
-                        <div class="demo-meta">
-                            <span class="meta-item">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"/>
-                                    <polyline points="12 6 12 12 16 14"/>
-                                </svg>
-                                1 day
-                            </span>
-                            <span class="meta-item">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                                    <polyline points="22 4 12 14.01 9 11.01"/>
-                                </svg>
-                                12 findings
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="demo-card" data-index="4">
+                <!-- Shipped to Production -->
+                <div class="demo-card" data-index="1">
                     <div class="demo-status">
                         <span class="status-dot shipped"></span>
                         Shipped to Production
                     </div>
                     <div class="demo-video">
-                        <div class="video-placeholder" data-video="multiselect">
-                            <div class="play-button">
-                                <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
-                                    <polygon points="5 3 19 12 5 21 5 3"/>
-                                </svg>
+                        <div class="video-preview" data-video="multiselect">
+                            <video muted loop playsinline preload="metadata">
+                                <source src="videos/multiselect-demo.mp4" type="video/mp4">
+                            </video>
+                            <div class="play-overlay">
+                                <div class="play-button">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <polygon points="5 3 19 12 5 21 5 3"/>
+                                    </svg>
+                                </div>
                             </div>
-                            <span class="video-label">Click to play demo</span>
                         </div>
                     </div>
                     <div class="demo-info">
                         <h3>Multi-Select Dropdown Fix</h3>
-                        <p>A case study in complexity. What looked like 2 hours became 6 hours across 13 commits resolving 9 cascading bugs.</p>
-                        <div class="demo-meta">
-                            <span class="meta-item">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"/>
-                                    <polyline points="12 6 12 12 16 14"/>
-                                </svg>
-                                6 hours
-                            </span>
-                            <span class="meta-item">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="4"/>
-                                    <path d="M12 2v2"/>
-                                    <path d="M12 20v2"/>
-                                    <path d="m4.93 4.93 1.41 1.41"/>
-                                    <path d="m17.66 17.66 1.41 1.41"/>
-                                    <path d="M2 12h2"/>
-                                    <path d="M20 12h2"/>
-                                    <path d="m6.34 17.66-1.41 1.41"/>
-                                    <path d="m19.07 4.93-1.41 1.41"/>
-                                </svg>
-                                13 commits
-                            </span>
-                        </div>
+                        <p>A case study in complexity. What looked like 2 hours became 6 hours.</p>
                         <div class="demo-author">AP</div>
+                    </div>
+                </div>
+
+                <!-- PR Ready -->
+                <div class="demo-card" data-index="2">
+                    <div class="demo-status">
+                        <span class="status-dot working"></span>
+                        PR Ready
+                    </div>
+                    <div class="demo-video">
+                        <div class="video-preview" data-video="automation-sections">
+                            <video muted loop playsinline preload="metadata">
+                                <source src="videos/automation-sections.mp4" type="video/mp4">
+                            </video>
+                            <div class="play-overlay">
+                                <div class="play-button">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <polygon points="5 3 19 12 5 21 5 3"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="demo-info">
+                        <h3>Create Automation to Section</h3>
+                        <p>New automations show a sub-menu to choose which section to add to.</p>
+                        <div class="demo-author">David Lange</div>
+                    </div>
+                </div>
+
+                <div class="demo-card" data-index="3">
+                    <div class="demo-status">
+                        <span class="status-dot working"></span>
+                        PR Ready
+                    </div>
+                    <div class="demo-video">
+                        <div class="video-preview" data-video="omni-error">
+                            <video muted loop playsinline preload="metadata">
+                                <source src="videos/omni-error-analysis.mp4" type="video/mp4">
+                            </video>
+                            <div class="play-overlay">
+                                <div class="play-button">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <polygon points="5 3 19 12 5 21 5 3"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="demo-info">
+                        <h3>Automations Omni Error Analysis</h3>
+                        <p>Gives Omni context into failed automation runs—trigger, actions, inputs/outputs, and error messages.</p>
+                        <div class="demo-author">David Lange</div>
+                    </div>
+                </div>
+
+                <!-- Working Prototype -->
+                <div class="demo-card" data-index="4">
+                    <div class="demo-status">
+                        <span class="status-dot working"></span>
+                        Working Prototype
+                    </div>
+                    <div class="demo-video">
+                        <div class="demo-screenshot" data-video="field-agent">
+                            <img src="images/field-agent.png" alt="Field Agent Admin Panel Control">
+                        </div>
+                    </div>
+                    <div class="demo-info">
+                        <h3>Field Agent Admin Panel Control</h3>
+                        <p>Enterprise governance toggle for Field Agents. Sony needs this to enable AI.</p>
+                        <div class="demo-author">Chase Thompson</div>
+                    </div>
+                </div>
+
+                <div class="demo-card" data-index="5">
+                    <div class="demo-status">
+                        <span class="status-dot working"></span>
+                        Working Prototype
+                    </div>
+                    <div class="demo-video">
+                        <div class="demo-screenshot" data-video="search-autocomplete">
+                            <img src="images/search-autocomplete.png" alt="Search Autocomplete App Names">
+                        </div>
+                    </div>
+                    <div class="demo-info">
+                        <h3>Search Autocomplete App Names</h3>
+                        <p>Added app name to search autocomplete on homescreen.</p>
+                        <div class="demo-author">Jocelyn Lin</div>
+                    </div>
+                </div>
+
+                <!-- Concept Prototype -->
+                <div class="demo-card" data-index="6">
+                    <div class="demo-status">
+                        <span class="status-dot working"></span>
+                        Concept Prototype
+                    </div>
+                    <div class="demo-video">
+                        <div class="video-preview" data-video="consumer-app">
+                            <video muted loop playsinline preload="metadata">
+                                <source src="videos/consumer-app-demo.mov" type="video/mp4">
+                            </video>
+                            <div class="play-overlay">
+                                <div class="play-button">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <polygon points="5 3 19 12 5 21 5 3"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="demo-info">
+                        <h3>Airtable Consumer App (B2B2C)</h3>
+                        <p>Exploring what Airtable could look like for building single-tenant end user apps.</p>
+                        <div class="demo-author">Chase Thompson</div>
+                    </div>
+                </div>
+
+                <!-- In Progress -->
+                <div class="demo-card" data-index="7">
+                    <div class="demo-status">
+                        <span class="status-dot in-progress"></span>
+                        In Progress
+                    </div>
+                    <div class="demo-video">
+                        <div class="demo-screenshot" data-video="bulk-invites">
+                            <img src="images/bulk-invites.png" alt="Bulk Manage Pending Invites">
+                        </div>
+                    </div>
+                    <div class="demo-info">
+                        <h3>Admin Bulk Manage Pending Invites</h3>
+                        <p>Customer request from Roche. Bulk selection, resend, cancel, and filters.</p>
+                        <div class="demo-author">Chase Thompson</div>
                     </div>
                 </div>
             </div>
@@ -679,20 +641,49 @@
         </div>
     </div>
 
-    <!-- Video Modal -->
-    <div class="video-modal" id="videoModal">
+    <!-- Demo Detail Modal -->
+    <div class="demo-detail-modal" id="demoDetailModal">
         <div class="modal-backdrop"></div>
-        <div class="modal-content">
+        <div class="demo-detail-content">
             <button class="modal-close">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <line x1="18" y1="6" x2="6" y2="18"/>
                     <line x1="6" y1="6" x2="18" y2="18"/>
                 </svg>
             </button>
-            <div class="video-container">
-                <video id="demoVideo" controls>
+
+            <!-- Media Section -->
+            <div class="demo-detail-media">
+                <!-- Video (shown when demo has video) -->
+                <video class="demo-detail-video" id="detailVideo" controls style="display: none;">
                     <source src="" type="video/mp4">
                 </video>
+
+                <!-- Carousel (shown when demo has screenshots) -->
+                <div class="demo-carousel" id="detailCarousel" style="display: none;">
+                    <div class="carousel-track" id="carouselTrack"></div>
+                    <button class="carousel-btn prev" id="carouselPrev">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="15 18 9 12 15 6"/>
+                        </svg>
+                    </button>
+                    <button class="carousel-btn next" id="carouselNext">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"/>
+                        </svg>
+                    </button>
+                    <div class="carousel-dots" id="carouselDots"></div>
+                </div>
+            </div>
+
+            <!-- Info Section -->
+            <div class="demo-detail-info">
+                <div class="demo-detail-header">
+                    <h2 class="demo-detail-title" id="detailTitle"></h2>
+                    <span class="demo-detail-status" id="detailStatus"></span>
+                </div>
+                <p class="demo-detail-description" id="detailDescription"></p>
+                <div id="detailMeta"></div>
             </div>
         </div>
     </div>
