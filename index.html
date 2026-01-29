@@ -240,28 +240,79 @@
                         </div>
                     </div>
                     <div class="demo-info">
-                        <h3>Field Agent Admin Panel</h3>
-                        <p>A functional prototype for configuring Field Agent behavior through admin settings. Demonstrates how PMs can create working internal tools.</p>
+                        <h3>Field Agent Admin Panel Control</h3>
+                        <p>Enterprise governance toggle for Field Agents. Sony needs this to enable AI—originally estimated at 2-3 weeks of engineering. Full stack: feature flag, schema, DB migration, CRUD handler, permission checks, admin UI.</p>
                         <div class="demo-meta">
                             <span class="meta-item">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <circle cx="12" cy="12" r="10"/>
                                     <polyline points="12 6 12 12 16 14"/>
                                 </svg>
-                                2 days
+                                ~2 hours
                             </span>
                             <span class="meta-item">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
-                                    <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+                                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
                                 </svg>
-                                4 PRs
+                                $17 API cost
+                            </span>
+                            <span class="meta-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="16 18 22 12 16 6"/>
+                                    <polyline points="8 6 2 12 8 18"/>
+                                </svg>
+                                1,416 lines
                             </span>
                         </div>
+                        <div class="demo-author">Chase Thompson</div>
                     </div>
                 </div>
 
                 <div class="demo-card" data-index="2">
+                    <div class="demo-status">
+                        <span class="status-dot in-progress"></span>
+                        In Progress
+                    </div>
+                    <div class="demo-video">
+                        <div class="video-placeholder" data-video="bulk-invites">
+                            <div class="play-button">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                                    <polygon points="5 3 19 12 5 21 5 3"/>
+                                </svg>
+                            </div>
+                            <span class="video-label">Click to play demo</span>
+                        </div>
+                    </div>
+                    <div class="demo-info">
+                        <h3>Admin Bulk Manage Pending Invites</h3>
+                        <p>Customer request from Roche. Bulk selection, resend, cancel, and filters for pending invites in Enterprise Admin Panel. Backend handlers, filter components, confirmation modals.</p>
+                        <div class="demo-meta">
+                            <span class="meta-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polyline points="12 6 12 12 16 14"/>
+                                </svg>
+                                ~3 hours
+                            </span>
+                            <span class="meta-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                                </svg>
+                                $22 API cost
+                            </span>
+                            <span class="meta-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="16 18 22 12 16 6"/>
+                                    <polyline points="8 6 2 12 8 18"/>
+                                </svg>
+                                1,436 lines
+                            </span>
+                        </div>
+                        <div class="demo-author">Chase Thompson</div>
+                    </div>
+                </div>
+
+                <div class="demo-card" data-index="3">
                     <div class="demo-status">
                         <span class="status-dot complete"></span>
                         Complete
@@ -278,7 +329,7 @@
                     </div>
                     <div class="demo-info">
                         <h3>AI Governance Audit</h3>
-                        <p>Automated analysis of existing AI governance implementation. Identified gaps and generated actionable recommendations.</p>
+                        <p>Automated analysis of existing AI governance implementation. Identified gaps and generated actionable recommendations without engineering time.</p>
                         <div class="demo-meta">
                             <span class="meta-item">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -298,7 +349,7 @@
                     </div>
                 </div>
 
-                <div class="demo-card" data-index="3">
+                <div class="demo-card" data-index="4">
                     <div class="demo-status">
                         <span class="status-dot shipped"></span>
                         Shipped to Production
@@ -339,36 +390,7 @@
                                 13 commits
                             </span>
                         </div>
-                    </div>
-                </div>
-
-                <div class="demo-card" data-index="4">
-                    <div class="demo-status">
-                        <span class="status-dot in-progress"></span>
-                        In Progress
-                    </div>
-                    <div class="demo-video">
-                        <div class="video-placeholder" data-video="cursor-rules">
-                            <div class="play-button">
-                                <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
-                                    <polygon points="5 3 19 12 5 21 5 3"/>
-                                </svg>
-                            </div>
-                            <span class="video-label">Click to play demo</span>
-                        </div>
-                    </div>
-                    <div class="demo-info">
-                        <h3>Cursor Rules for Admin</h3>
-                        <p>Domain-specific AI guidance rules to help Claude understand admin panel patterns and make better decisions.</p>
-                        <div class="demo-meta">
-                            <span class="meta-item">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 20h9"/>
-                                    <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
-                                </svg>
-                                Active development
-                            </span>
-                        </div>
+                        <div class="demo-author">AP</div>
                     </div>
                 </div>
             </div>
@@ -464,6 +486,27 @@
                                 </div>
                             </div>
                             <p class="learning-insight">Explicitly choosing a smaller scope—even if it means shipping a partial solution—is valid when it delivers user value faster. Sometimes a PM can ship the 80% solution in hours while the 100% solution waits months.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="learning-panel" data-index="5">
+                    <div class="learning-number">05</div>
+                    <div class="learning-content">
+                        <h3>Keep a Stable Plan Doc Outside Claude</h3>
+                        <div class="learning-detail">
+                            <p>Claude sessions compact, crash, or need to restart. <strong>Without an external plan document, you lose context and have to re-explain everything.</strong></p>
+                            <div class="learning-example">
+                                <div class="example-bad">
+                                    <span class="example-label">Pain Point</span>
+                                    <code>"Had to start/end many sessions and kept losing context"</code>
+                                </div>
+                                <div class="example-good">
+                                    <span class="example-label">Solution</span>
+                                    <code>Maintain a plan.md file that survives session restarts</code>
+                                </div>
+                            </div>
+                            <p class="learning-insight">Your plan doc becomes the source of truth. When Claude compacts or you need a fresh session, you can paste the plan back in and pick up where you left off.</p>
                         </div>
                     </div>
                 </div>

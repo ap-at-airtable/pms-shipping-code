@@ -759,6 +759,15 @@ body {
     color: var(--accent);
 }
 
+.demo-author {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid var(--card-border);
+    font-size: 0.85rem;
+    color: var(--accent-light);
+    font-weight: 500;
+}
+
 /* =====================
    LEARNINGS PAGE
    ===================== */
