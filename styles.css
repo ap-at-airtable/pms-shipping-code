@@ -888,6 +888,66 @@ body {
     border-color: var(--accent);
 }
 
+.learning-panel.featured {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(139, 92, 246, 0.1) 100%);
+    border: 2px solid var(--accent);
+    position: relative;
+}
+
+.learning-panel.featured::before {
+    content: '★ KEY LEARNING';
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    background: var(--gradient-1);
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: white;
+}
+
+.learning-gaps {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.gap-item {
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    background: rgba(244, 63, 94, 0.08);
+    border: 1px solid rgba(244, 63, 94, 0.2);
+    border-radius: 12px;
+}
+
+.gap-number {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(244, 63, 94, 0.2);
+    border-radius: 50%;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--highlight);
+}
+
+.gap-content {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.gap-content strong {
+    color: var(--text);
+}
+
 .learning-number {
     font-family: 'JetBrains Mono', monospace;
     font-size: 2.5rem;
