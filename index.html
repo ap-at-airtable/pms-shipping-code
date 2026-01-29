@@ -371,72 +371,82 @@
                 <p class="page-subtitle">What we've discovered along the way</p>
             </div>
             <div class="learnings-container">
-                <!-- Learning 1: Prototyping (FEATURED) -->
+                <!-- Learning 1: Hyperbase Isn't AI-Ready (FEATURED) -->
                 <div class="learning-panel featured" data-index="1">
                     <div class="learning-number">01</div>
                     <div class="learning-content">
+                        <h3>Hyperbase Isn't AI-Ready Yet</h3>
+                        <div class="learning-detail">
+                            <p>The biggest friction isn't PM skill—it's our codebase. <strong>"It feels like there is no ceiling—but we can't bring this into Hyperbase because of these gaps."</strong></p>
+                            <div class="learning-gaps">
+                                <div class="gap-item">
+                                    <span class="gap-number">1</span>
+                                    <div class="gap-content">
+                                        <strong>No Claude MD / skills files.</strong> No indexing or directory structure for AI tools. Context fills up too fast.
+                                    </div>
+                                </div>
+                                <div class="gap-item">
+                                    <span class="gap-number">2</span>
+                                    <div class="gap-content">
+                                        <strong>No documentation ownership.</strong> Code is diffuse across 50+ locations with no coherent team ownership.
+                                    </div>
+                                </div>
+                                <div class="gap-item">
+                                    <span class="gap-number">3</span>
+                                    <div class="gap-content">
+                                        <strong>Overloaded terms.</strong> Words like "future" and "permission" mean different things, causing AI to go down wrong paths.
+                                    </div>
+                                </div>
+                            </div>
+                            <p>These gaps affect everyone—not just PMs. Fixing them would unlock AI productivity across the entire engineering org.</p>
+                            <p class="learning-insight"><strong>These are solvable.</strong> Product urges continued focus on codebase skills, indexes, and teams owning .md files for their areas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Learning 2: Prototyping Changes the Game -->
+                <div class="learning-panel" data-index="2">
+                    <div class="learning-number">02</div>
+                    <div class="learning-content">
                         <h3>Prototyping Changes the Game</h3>
                         <div class="learning-detail">
-                            <p>The workflow shift from "write PRD, go through design" to "prototype first, then refine" produces better starting points and faster iteration. <strong>This is the biggest unlock of the sprint.</strong></p>
+                            <p>The workflow shift from "write PRD, go through design" to "prototype first, then refine" produces better starting points and faster iteration.</p>
                             <div class="learning-quote">
                                 <span class="quote-mark">"</span>
                                 <p>This was way better than writing a PRD and going through design. Now the starting point with which I go to design is much stronger.</p>
                                 <span class="quote-attribution">— PM after the prototyping spike</span>
                             </div>
-                            <p>The Governance spike proved this works even in our most complex areas—permissions and licensing, arguably our most complicated domain. If it works there, it likely works elsewhere.</p>
-                            <p class="learning-insight">Instead of describing what you want, you can show working code. Engineers receive a functional starting point instead of static mockups.</p>
+                            <p>The Governance spike proved this works even in our most complex areas—permissions and licensing, arguably our most complicated domain. If it works there, it works elsewhere.</p>
+                            <p class="learning-insight">Instead of describing what you want, show working code. Engineers receive a functional starting point instead of static mockups.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Learning 2: PM-AI Fit -->
-                <div class="learning-panel" data-index="2">
-                    <div class="learning-number">02</div>
+                <!-- Learning 3: PM-Eng Pairing Creates New Value -->
+                <div class="learning-panel" data-index="3">
+                    <div class="learning-number">03</div>
                     <div class="learning-content">
-                        <h3>Claude Code Accelerates All PM Work</h3>
+                        <h3>PM-Eng Pairing Creates New Value</h3>
                         <div class="learning-detail">
-                            <p>PMs naturally describe what they want rather than how to build it—which aligns with how AI assistants work. <strong>This extends beyond coding to planning artifacts, PRDs, and support triage.</strong></p>
+                            <p>PMs and engineers approach AI tools differently. <strong>These differences are complementary, not competing.</strong></p>
                             <div class="learning-quote">
                                 <span class="quote-mark">"</span>
                                 <p>It was incredibly helpful to see how you approach using Claude Code as it is a departure from how I solve building as an engineer.</p>
                                 <span class="quote-attribution">— Engineer after pairing with a PM</span>
                             </div>
-                            <p>The same workflow loop—plan in .md, generate output, test/iterate, ship—applies to specs, support analysis, and decision documents.</p>
-                            <p class="learning-insight">Engineers and PMs bring complementary strengths to AI-assisted development. Different mental models can be an advantage.</p>
+                            <p>PMs describe outcomes; engineers specify implementations. When paired, they can validate approaches faster and catch blind spots earlier. This is a new collaboration model worth exploring.</p>
+                            <p class="learning-insight">Consider dedicated PM-Eng pairing sessions for AI-assisted development. Both roles learn from each other's mental models.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Learning 3: New Habits -->
-                <div class="learning-panel" data-index="3">
-                    <div class="learning-number">03</div>
-                    <div class="learning-content">
-                        <h3>Effective AI Requires New Habits</h3>
-                        <div class="learning-detail">
-                            <p>Success with AI coding requires specific practices that aren't obvious at first. <strong>Two key habits emerged from the sprint.</strong></p>
-                            <div class="learning-example">
-                                <div class="example-bad">
-                                    <span class="example-label">Less Effective</span>
-                                    <code>"Always ask before pushing code"</code>
-                                </div>
-                                <div class="example-good">
-                                    <span class="example-label">More Effective</span>
-                                    <code>"NEVER push without explicit user approval"</code>
-                                </div>
-                            </div>
-                            <p>Negative instructions beat proactive ones—AI responds more reliably to prohibitions. And keep a stable plan.md outside Claude, since sessions compact and you'll lose context.</p>
-                            <p class="learning-insight">Your plan doc becomes the source of truth. When Claude compacts, paste it back in and pick up where you left off.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Learning 4: Bottlenecks -->
+                <!-- Learning 4: Our Review Process Needs to Adapt -->
                 <div class="learning-panel" data-index="4">
                     <div class="learning-number">04</div>
                     <div class="learning-content">
-                        <h3>The Bottleneck Isn't PM Skills</h3>
+                        <h3>Our Review Process Needs to Adapt</h3>
                         <div class="learning-detail">
-                            <p>PMs can write code faster than engineers can review it. <strong>The traditional review process assumes authors can iterate independently.</strong></p>
+                            <p>PMs can write code faster than engineers can review it. <strong>Our current PR process assumes authors can iterate independently on feedback.</strong></p>
                             <div class="bottleneck-visual">
                                 <div class="flow-item">
                                     <span class="flow-icon fast">PM</span>
@@ -454,41 +464,8 @@
                                     <span class="flow-speed">Blocked</span>
                                 </div>
                             </div>
-                            <p>Scoping down is a legitimate strategy. A PM can often ship the 80% solution in hours while the 100% solution waits months in the backlog.</p>
-                            <p class="learning-insight">We need different review workflows for PM-authored code—possibly automated pre-review tools or dedicated review slots.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Learning 5: What's Blocking Scale -->
-                <div class="learning-panel" data-index="5">
-                    <div class="learning-number">05</div>
-                    <div class="learning-content">
-                        <h3>What's Blocking Scale: Codebase Isn't AI-Ready</h3>
-                        <div class="learning-detail">
-                            <p>The biggest friction isn't PM skill—it's our codebase. <strong>"It feels like there is no ceiling—but we can't bring this into Hyperbase because of these gaps."</strong></p>
-                            <div class="learning-gaps">
-                                <div class="gap-item">
-                                    <span class="gap-number">1</span>
-                                    <div class="gap-content">
-                                        <strong>No Claude MD / skills files.</strong> No indexing for AI tools. Context fills up too fast.
-                                    </div>
-                                </div>
-                                <div class="gap-item">
-                                    <span class="gap-number">2</span>
-                                    <div class="gap-content">
-                                        <strong>No documentation ownership.</strong> Code diffuse across 50+ locations.
-                                    </div>
-                                </div>
-                                <div class="gap-item">
-                                    <span class="gap-number">3</span>
-                                    <div class="gap-content">
-                                        <strong>Overloaded terms.</strong> Words like "future" and "permission" cause wrong rabbit holes.
-                                    </div>
-                                </div>
-                            </div>
-                            <p>These gaps affect everyone—not just PMs. Fixing them would unlock AI productivity across the entire engineering org.</p>
-                            <p class="learning-insight"><strong>These are readily solvable.</strong> Product urges eng to continue focus on codebase skills, indexes, and .md ownership.</p>
+                            <p>Options to explore: Bugbot for automated pre-review, dedicated review slots for PM code, or pairing during the review itself to accelerate iteration.</p>
+                            <p class="learning-insight">The 80% solution shipped in hours beats the 100% solution waiting months in backlog. Process should enable this.</p>
                         </div>
                     </div>
                 </div>
