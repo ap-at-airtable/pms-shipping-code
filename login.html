@@ -180,7 +180,7 @@
             <div class="login-header">
                 <span class="login-icon">&lt;/&gt;</span>
                 <h1>Team Access</h1>
-                <p>Enter your email to edit content</p>
+                <p>Enter your Airtable email to continue</p>
             </div>
 
             <div class="error-message" id="errorMessage">
@@ -202,13 +202,9 @@
                 </div>
 
                 <button type="submit" class="login-button">
-                    Continue to Editor
+                    Continue
                 </button>
             </form>
-
-            <div class="login-footer">
-                <a href="index.html">Back to presentation</a>
-            </div>
         </div>
     </div>
 
@@ -216,6 +212,10 @@
         const form = document.getElementById('loginForm');
         const emailInput = document.getElementById('email');
         const errorMessage = document.getElementById('errorMessage');
+
+        // Get redirect destination from URL params (default to index.html)
+        const urlParams = new URLSearchParams(window.location.search);
+        const redirectTo = urlParams.get('redirect') === 'admin' ? 'admin.html' : 'index.html';
 
         form.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -225,8 +225,8 @@
             if (email.endsWith('@airtable.com')) {
                 // Store email in sessionStorage
                 sessionStorage.setItem('userEmail', email);
-                // Redirect to admin page
-                window.location.href = 'admin.html';
+                // Redirect to requested page
+                window.location.href = redirectTo;
             } else {
                 errorMessage.classList.add('visible');
                 emailInput.focus();
@@ -240,7 +240,7 @@
 
         // Check if already logged in
         if (sessionStorage.getItem('userEmail')) {
-            window.location.href = 'admin.html';
+            window.location.href = redirectTo;
         }
     </script>
 </body>

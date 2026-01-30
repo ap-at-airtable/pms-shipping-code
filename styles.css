@@ -203,6 +203,24 @@ body {
     border: 1px solid var(--card-border);
 }
 
+.sign-out-btn {
+    font-family: inherit;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    padding: 8px 16px;
+    background: transparent;
+    border-radius: 20px;
+    border: 1px solid var(--card-border);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.sign-out-btn:hover {
+    color: var(--text);
+    border-color: var(--text-muted);
+    background: var(--glass);
+}
+
 .pulse-dot {
     width: 8px;
     height: 8px;

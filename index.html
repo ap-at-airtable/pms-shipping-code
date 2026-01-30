@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PMs Shipping Code - Leadership Check-in</title>
 
+    <!-- Auth check - redirect to login if not authenticated -->
+    <script>
+        (function() {
+            var userEmail = sessionStorage.getItem('userEmail');
+            if (!userEmail || !userEmail.endsWith('@airtable.com')) {
+                window.location.href = 'login.html?redirect=index';
+            }
+        })();
+    </script>
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -58,6 +68,9 @@
             <span class="pulse-dot"></span>
             Week 1.5 of 2
         </div>
+        <button class="sign-out-btn" id="signOutBtn" title="Sign out">
+            Sign out
+        </button>
     </nav>
 
     <!-- Page Container -->
@@ -708,5 +721,12 @@
     </div>
 
     <script src="app.js"></script>
+    <script>
+        // Sign out handler
+        document.getElementById('signOutBtn').addEventListener('click', function() {
+            sessionStorage.removeItem('userEmail');
+            window.location.href = 'login.html';
+        });
+    </script>
 </body>
 </html>
