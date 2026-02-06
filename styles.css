@@ -886,7 +886,7 @@ body {
    ===================== */
 .learnings-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
     align-items: stretch;
 }
@@ -1184,6 +1184,145 @@ body {
 .flow-arrow svg {
     width: 24px;
     height: 14px;
+}
+
+/* Learning Approach */
+.learning-approach {
+    background: rgba(16, 185, 129, 0.08);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    border-radius: 10px;
+    padding: 16px;
+    margin: 12px 0;
+}
+
+.approach-label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--success);
+    margin-bottom: 10px;
+}
+
+.learning-approach ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.learning-approach li {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    padding-left: 18px;
+    position: relative;
+    line-height: 1.5;
+}
+
+.learning-approach li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--success);
+}
+
+/* Learning Issues */
+.learning-issues {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 12px 0;
+}
+
+.issue-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 12px;
+    background: rgba(245, 158, 11, 0.08);
+    border: 1px solid rgba(245, 158, 11, 0.2);
+    border-radius: 8px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.45;
+}
+
+.issue-icon {
+    flex-shrink: 0;
+    font-size: 0.9rem;
+}
+
+/* Learning Contacts */
+.learning-contacts {
+    background: var(--glass);
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    padding: 16px;
+    margin: 12px 0;
+}
+
+.contacts-label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-dim);
+    margin-bottom: 12px;
+}
+
+.contact-item {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    padding: 8px 0;
+    border-bottom: 1px solid var(--card-border);
+    line-height: 1.5;
+}
+
+.contact-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.contact-item strong {
+    color: var(--accent-light);
+}
+
+/* Learning Applications */
+.learning-applications {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 12px 0;
+}
+
+.application-item {
+    display: flex;
+    gap: 14px;
+    padding: 14px;
+    background: var(--glass);
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+}
+
+.app-icon {
+    flex-shrink: 0;
+    font-size: 1.3rem;
+}
+
+.app-content strong {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text);
+    margin-bottom: 4px;
+}
+
+.app-content p {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin: 0;
 }
 
 /* Scope Visual */
@@ -2176,6 +2315,136 @@ body {
     margin-top: 25px;
 }
 
+.learning-detail-body .learning-strategy {
+    margin: 25px 0;
+    padding: 20px 24px;
+}
+
+.learning-detail-body .strategy-label {
+    font-size: 0.8rem;
+    margin-bottom: 14px;
+}
+
+.learning-detail-body .learning-strategy li {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    padding-left: 22px;
+}
+
+.learning-detail-body .design-findings {
+    margin: 25px 0;
+    padding: 20px 24px;
+}
+
+.learning-detail-body .findings-label {
+    font-size: 0.8rem;
+    margin-bottom: 14px;
+}
+
+.learning-detail-body .design-finding-item {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 12px;
+    padding-left: 16px;
+}
+
+.learning-detail-body .design-checkpoints {
+    margin: 25px 0;
+}
+
+.learning-detail-body .checkpoints-label {
+    font-size: 0.8rem;
+    margin-bottom: 14px;
+}
+
+.learning-detail-body .checkpoint-item {
+    padding: 16px;
+}
+
+.learning-detail-body .checkpoint-content strong {
+    font-size: 0.95rem;
+}
+
+.learning-detail-body .checkpoint-content p {
+    font-size: 0.85rem;
+    margin-bottom: 0;
+}
+
+.learning-detail-body .learning-contacts {
+    margin: 25px 0;
+    padding: 20px 24px;
+}
+
+.learning-detail-body .contacts-label {
+    font-size: 0.8rem;
+}
+
+.learning-detail-body .contact-item {
+    font-size: 0.95rem;
+}
+
+.learning-detail-body .learning-issues {
+    margin: 25px 0;
+}
+
+.learning-detail-body .issue-item {
+    padding: 14px 16px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.learning-detail-body .learning-approach {
+    margin: 25px 0;
+    padding: 20px 24px;
+}
+
+.learning-detail-body .approach-label {
+    font-size: 0.8rem;
+    margin-bottom: 14px;
+}
+
+.learning-detail-body .learning-approach li {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    padding-left: 22px;
+}
+
+.learning-detail-body .learning-applications {
+    margin: 25px 0;
+}
+
+.learning-detail-body .application-item {
+    display: flex;
+    gap: 14px;
+    padding: 16px;
+    background: var(--glass);
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    margin-bottom: 12px;
+}
+
+.learning-detail-body .application-item:last-child {
+    margin-bottom: 0;
+}
+
+.learning-detail-body .app-icon {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+}
+
+.learning-detail-body .app-content strong {
+    display: block;
+    font-size: 1rem;
+    color: var(--text);
+    margin-bottom: 4px;
+}
+
+.learning-detail-body .app-content p {
+    font-size: 0.95rem;
+    margin-bottom: 0;
+    line-height: 1.6;
+}
+
 .learning-detail-footer {
     padding: 20px 40px;
     border-top: 1px solid var(--card-border);
@@ -2304,6 +2573,1030 @@ body {
 }
 
 /* =====================
+   PLAYBOOK PAGE
+   ===================== */
+.playbook-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.playbook-principle {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 30px;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(139, 92, 246, 0.1) 100%);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    border-radius: 16px;
+}
+
+.principle-icon {
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent);
+    border-radius: 12px;
+    color: white;
+}
+
+.playbook-principle p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text);
+}
+
+.playbook-section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.playbook-section-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.section-icon {
+    color: var(--accent);
+}
+
+/* Decision Cards */
+.decision-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.decision-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 24px;
+    position: relative;
+}
+
+.decision-number {
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent);
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.decision-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+    color: var(--text);
+}
+
+.decision-lists {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.decision-list {
+    padding: 16px;
+    border-radius: 12px;
+}
+
+.decision-list.good {
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.decision-list.bad {
+    background: rgba(244, 63, 94, 0.1);
+    border: 1px solid rgba(244, 63, 94, 0.2);
+}
+
+.list-label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+}
+
+.decision-list.good .list-label {
+    color: var(--success);
+}
+
+.decision-list.bad .list-label {
+    color: var(--highlight);
+}
+
+.decision-list ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.decision-list li {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.scope-checklist, .opportunity-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 12px 0;
+}
+
+.scope-checklist li, .opportunity-list li {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    padding-left: 20px;
+    position: relative;
+}
+
+.scope-checklist li::before {
+    content: '□';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+}
+
+.opportunity-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--text-dim);
+}
+
+.scope-warning {
+    font-size: 0.85rem;
+    color: var(--warning);
+    font-style: italic;
+}
+
+.decision-card p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+}
+
+/* Tracks */
+.tracks-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.track-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.track-header {
+    padding: 24px;
+    border-bottom: 1px solid var(--card-border);
+}
+
+.track-card.track-production .track-header {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, transparent 100%);
+}
+
+.track-card.track-prototype .track-header {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, transparent 100%);
+}
+
+.track-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+
+.track-production .track-label {
+    background: rgba(99, 102, 241, 0.2);
+    color: var(--accent-light);
+}
+
+.track-prototype .track-label {
+    background: rgba(16, 185, 129, 0.2);
+    color: var(--success);
+}
+
+.track-header h4 {
+    font-size: 1.3rem;
+    margin-bottom: 4px;
+}
+
+.track-subtitle {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.track-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.track-workflow, .track-guardrails {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.workflow-title, .guardrails-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-dim);
+}
+
+.track-workflow ol {
+    list-style: none;
+    counter-reset: workflow;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.track-workflow li {
+    counter-increment: workflow;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    padding-left: 28px;
+    position: relative;
+}
+
+.track-workflow li::before {
+    content: counter(workflow);
+    position: absolute;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--tertiary);
+    border-radius: 50%;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-dim);
+}
+
+.guardrail-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.guardrail-icon {
+    flex-shrink: 0;
+    font-size: 1rem;
+}
+
+/* AI Guidance */
+.ai-guidance-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.ai-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 24px;
+}
+
+.ai-card.works {
+    border-color: rgba(16, 185, 129, 0.3);
+}
+
+.ai-card.fails {
+    border-color: rgba(244, 63, 94, 0.3);
+}
+
+.ai-card.failures {
+    border-color: rgba(245, 158, 11, 0.3);
+}
+
+.ai-card h4 {
+    font-size: 1rem;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--card-border);
+}
+
+.ai-card.works h4 {
+    color: var(--success);
+}
+
+.ai-card.fails h4 {
+    color: var(--highlight);
+}
+
+.ai-card.failures h4 {
+    color: var(--warning);
+}
+
+.ai-card ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.ai-card li {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.failure-action {
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid var(--card-border);
+    font-size: 0.9rem;
+    color: var(--warning);
+}
+
+/* Claude Code Features */
+.claude-features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 32px;
+}
+
+.claude-feature {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 24px;
+}
+
+.feature-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.feature-icon {
+    font-size: 1.5rem;
+}
+
+.feature-header h4 {
+    font-size: 1.1rem;
+    color: var(--text);
+}
+
+.claude-feature p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    line-height: 1.6;
+}
+
+.claude-feature code {
+    background: var(--tertiary);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--accent-light);
+}
+
+.feature-tips {
+    background: var(--tertiary);
+    border-radius: 8px;
+    padding: 12px 16px;
+}
+
+.tips-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-dim);
+    margin-bottom: 8px;
+}
+
+.feature-tips ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.feature-tips li {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    padding-left: 16px;
+    position: relative;
+}
+
+.feature-tips li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+}
+
+/* Prompting Section */
+.prompting-section {
+    margin-bottom: 32px;
+}
+
+.prompting-title, .pitfalls-title {
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+    color: var(--text);
+}
+
+.prompting-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.prompt-example {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 24px;
+}
+
+.prompt-example.good {
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.prompt-example.bad {
+    border: 1px solid rgba(244, 63, 94, 0.3);
+}
+
+.prompt-label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.prompt-example.good .prompt-label {
+    color: var(--success);
+}
+
+.prompt-example.bad .prompt-label {
+    color: var(--highlight);
+}
+
+.prompt-item {
+    margin-bottom: 16px;
+}
+
+.prompt-item:last-child {
+    margin-bottom: 0;
+}
+
+.prompt-item code {
+    display: block;
+    background: var(--tertiary);
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--text);
+    margin-bottom: 6px;
+    line-height: 1.4;
+}
+
+.prompt-why {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    font-style: italic;
+    padding-left: 8px;
+}
+
+/* Pitfalls Section */
+.pitfalls-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.pitfall-item {
+    display: flex;
+    gap: 12px;
+    background: rgba(245, 158, 11, 0.08);
+    border: 1px solid rgba(245, 158, 11, 0.2);
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.pitfall-icon {
+    flex-shrink: 0;
+    font-size: 1.2rem;
+}
+
+.pitfall-content strong {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--warning);
+    margin-bottom: 4px;
+}
+
+.pitfall-content p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+/* Learning Strategy (Claude MD strategy in Learning #1) */
+.learning-strategy {
+    background: rgba(99, 102, 241, 0.08);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    border-radius: 10px;
+    padding: 16px;
+    margin: 12px 0;
+}
+
+.strategy-label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent-light);
+    margin-bottom: 10px;
+}
+
+.learning-strategy ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.learning-strategy li {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    padding-left: 18px;
+    position: relative;
+    line-height: 1.5;
+}
+
+.learning-strategy li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent-light);
+}
+
+/* Design Findings (Learning #4 expansion) */
+.design-findings {
+    background: rgba(245, 158, 11, 0.08);
+    border: 1px solid rgba(245, 158, 11, 0.2);
+    border-radius: 10px;
+    padding: 16px;
+    margin: 12px 0;
+}
+
+.findings-label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--warning);
+    margin-bottom: 10px;
+}
+
+.design-finding-item {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: 8px;
+    padding-left: 12px;
+    border-left: 2px solid rgba(245, 158, 11, 0.3);
+}
+
+.design-finding-item:last-child {
+    margin-bottom: 0;
+}
+
+.design-finding-item strong {
+    color: var(--text);
+}
+
+/* Design Checkpoints (Learning #4 flow) */
+.design-checkpoints {
+    margin: 16px 0;
+}
+
+.checkpoints-label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--success);
+    margin-bottom: 12px;
+}
+
+.checkpoint-flow {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.checkpoint-item {
+    flex: 1;
+    background: rgba(16, 185, 129, 0.06);
+    border: 1px solid rgba(16, 185, 129, 0.15);
+    border-radius: 8px;
+    padding: 12px;
+}
+
+.checkpoint-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    background: var(--success);
+    color: var(--primary);
+    border-radius: 50%;
+    font-size: 0.7rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.checkpoint-content strong {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text);
+    margin-bottom: 4px;
+}
+
+.checkpoint-content p {
+    font-size: 0.72rem;
+    color: var(--text-dim);
+    line-height: 1.4;
+}
+
+.checkpoint-arrow {
+    flex-shrink: 0;
+    color: var(--success);
+    opacity: 0.5;
+    padding-top: 24px;
+}
+
+/* Track Framing (Playbook tracks) */
+.track-framing {
+    padding: 16px 24px 0;
+}
+
+.track-framing p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    font-style: italic;
+}
+
+.track-framing strong {
+    color: var(--text);
+    font-style: normal;
+}
+
+/* Playbook Design Checkpoint Cards */
+.playbook-section-intro {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+.playbook-section-intro em {
+    color: var(--text-dim);
+}
+
+.design-checkpoint-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.design-checkpoint-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 24px;
+}
+
+.design-checkpoint-header {
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--card-border);
+}
+
+.design-checkpoint-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: var(--accent);
+    color: white;
+    border-radius: 50%;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.design-checkpoint-header h4 {
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+    color: var(--text);
+}
+
+.design-checkpoint-when {
+    font-size: 0.8rem;
+    color: var(--accent-light);
+    font-style: italic;
+}
+
+.design-checkpoint-card p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+}
+
+.design-checkpoint-card ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.design-checkpoint-card li {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    padding-left: 20px;
+    position: relative;
+}
+
+.design-checkpoint-card li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+}
+
+.design-checkpoint-note {
+    background: rgba(245, 158, 11, 0.08);
+    border: 1px solid rgba(245, 158, 11, 0.2);
+    border-radius: 12px;
+    padding: 20px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.design-checkpoint-note strong {
+    color: var(--warning);
+}
+
+.design-checkpoint-note em {
+    color: var(--text);
+    font-style: normal;
+    font-weight: 500;
+}
+
+/* Handoff Table */
+.handoff-table {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.handoff-row {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 20px;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--card-border);
+}
+
+.handoff-row:last-child {
+    border-bottom: none;
+}
+
+.handoff-row.header {
+    background: var(--tertiary);
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-dim);
+}
+
+.handoff-signal {
+    color: var(--highlight);
+    font-weight: 500;
+}
+
+.handoff-row.header .handoff-signal {
+    color: var(--text-dim);
+}
+
+.handoff-action {
+    color: var(--text-muted);
+}
+
+.handoff-tips {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 24px;
+    margin-top: 20px;
+}
+
+.handoff-tips h4 {
+    font-size: 1rem;
+    margin-bottom: 16px;
+    color: var(--text);
+}
+
+.handoff-tips ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.handoff-tips li {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    padding-left: 20px;
+    position: relative;
+}
+
+.handoff-tips li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+}
+
+/* Checklist Grid */
+.checklist-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.checklist-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 24px;
+}
+
+.checklist-card h4 {
+    font-size: 1rem;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--card-border);
+    color: var(--text);
+}
+
+.checklist {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.checklist li {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    padding-left: 28px;
+    position: relative;
+}
+
+.checklist li::before {
+    content: '☐';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 1.1rem;
+}
+
+/* Meta Section */
+.playbook-meta {
+    background: linear-gradient(135deg, var(--tertiary) 0%, var(--secondary) 100%);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 32px;
+    text-align: center;
+}
+
+.playbook-meta h4 {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+}
+
+.playbook-meta > p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+}
+
+.meta-columns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    margin-bottom: 24px;
+    text-align: left;
+}
+
+.meta-column {
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.meta-column:first-child {
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.meta-column:last-child {
+    background: rgba(244, 63, 94, 0.1);
+    border: 1px solid rgba(244, 63, 94, 0.2);
+}
+
+.meta-label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.meta-column:first-child .meta-label {
+    color: var(--success);
+}
+
+.meta-column:last-child .meta-label {
+    color: var(--highlight);
+}
+
+.meta-column ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.meta-column li {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.meta-conclusion {
+    font-size: 1.2rem;
+    color: var(--text);
+}
+
+/* =====================
    RESPONSIVE
    ===================== */
 @media (max-width: 1200px) {
@@ -2339,6 +3632,53 @@ body {
 
     .learning-visual {
         display: none;
+    }
+
+    /* Playbook responsive */
+    .decision-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .tracks-container {
+        grid-template-columns: 1fr;
+    }
+
+    .ai-guidance-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .checklist-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .meta-columns {
+        grid-template-columns: 1fr;
+    }
+
+    .claude-features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .prompting-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pitfalls-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .design-checkpoint-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .checkpoint-flow {
+        flex-direction: column;
+    }
+
+    .checkpoint-arrow {
+        transform: rotate(90deg);
+        padding-top: 0;
+        align-self: center;
     }
 }
 
@@ -2394,5 +3734,44 @@ body {
 
     .flow-arrow {
         transform: rotate(90deg);
+    }
+
+    /* Checkpoint flow mobile */
+    .checkpoint-flow {
+        flex-direction: column;
+    }
+
+    .checkpoint-arrow {
+        transform: rotate(90deg);
+        padding-top: 0;
+        align-self: center;
+    }
+
+    /* Playbook mobile */
+    .playbook-principle {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .playbook-section-title {
+        font-size: 1.2rem;
+    }
+
+    .handoff-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .handoff-row.header {
+        display: none;
+    }
+
+    .handoff-signal {
+        font-weight: 600;
+    }
+
+    .handoff-action {
+        padding-left: 16px;
+        border-left: 2px solid var(--accent);
     }
 }

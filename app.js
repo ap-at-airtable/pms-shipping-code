@@ -129,6 +129,9 @@ function animatePageContent(pageName) {
         case 'conclusions':
             animateConclusionsPage(page);
             break;
+        case 'playbook':
+            animatePlaybookPage(page);
+            break;
     }
 }
 
@@ -269,6 +272,200 @@ function animateConclusionsPage(page) {
                 y: 0,
                 duration: 0.6,
                 delay: 0.5,
+                ease: 'power3.out'
+            }
+        );
+    }
+
+    animatePageHeader(page);
+}
+
+function animatePlaybookPage(page) {
+    // Animate principle box
+    const principle = page.querySelector('.playbook-principle');
+    if (principle) {
+        gsap.fromTo(principle,
+            {
+                opacity: 0,
+                y: 30
+            },
+            {
+                opacity: 1,
+                y: 0,
+                duration: 0.6,
+                ease: 'power3.out'
+            }
+        );
+    }
+
+    // Animate decision cards
+    const decisionCards = page.querySelectorAll('.decision-card');
+    gsap.fromTo(decisionCards,
+        {
+            opacity: 0,
+            y: 40
+        },
+        {
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+            stagger: 0.1,
+            delay: 0.2,
+            ease: 'power3.out'
+        }
+    );
+
+    // Animate track cards
+    const trackCards = page.querySelectorAll('.track-card');
+    gsap.fromTo(trackCards,
+        {
+            opacity: 0,
+            x: -30
+        },
+        {
+            opacity: 1,
+            x: 0,
+            duration: 0.6,
+            stagger: 0.15,
+            delay: 0.4,
+            ease: 'power3.out'
+        }
+    );
+
+    // Animate Claude features
+    const claudeFeatures = page.querySelectorAll('.claude-feature');
+    gsap.fromTo(claudeFeatures,
+        {
+            opacity: 0,
+            y: 30
+        },
+        {
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+            stagger: 0.1,
+            delay: 0.4,
+            ease: 'power3.out'
+        }
+    );
+
+    // Animate prompting section
+    const promptExamples = page.querySelectorAll('.prompt-example');
+    gsap.fromTo(promptExamples,
+        {
+            opacity: 0,
+            x: -20
+        },
+        {
+            opacity: 1,
+            x: 0,
+            duration: 0.5,
+            stagger: 0.1,
+            delay: 0.5,
+            ease: 'power3.out'
+        }
+    );
+
+    // Animate pitfalls
+    const pitfalls = page.querySelectorAll('.pitfall-item');
+    gsap.fromTo(pitfalls,
+        {
+            opacity: 0,
+            scale: 0.95
+        },
+        {
+            opacity: 1,
+            scale: 1,
+            duration: 0.4,
+            stagger: 0.08,
+            delay: 0.6,
+            ease: 'power3.out'
+        }
+    );
+
+    // Animate design checkpoint cards
+    const designCheckpointCards = page.querySelectorAll('.design-checkpoint-card');
+    gsap.fromTo(designCheckpointCards,
+        {
+            opacity: 0,
+            y: 30
+        },
+        {
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+            stagger: 0.12,
+            delay: 0.5,
+            ease: 'power3.out'
+        }
+    );
+
+    // Animate design checkpoint note
+    const checkpointNote = page.querySelector('.design-checkpoint-note');
+    if (checkpointNote) {
+        gsap.fromTo(checkpointNote,
+            {
+                opacity: 0,
+                y: 20
+            },
+            {
+                opacity: 1,
+                y: 0,
+                duration: 0.5,
+                delay: 0.7,
+                ease: 'power3.out'
+            }
+        );
+    }
+
+    // Animate handoff table
+    const handoffTable = page.querySelector('.handoff-table');
+    if (handoffTable) {
+        gsap.fromTo(handoffTable,
+            {
+                opacity: 0,
+                y: 20
+            },
+            {
+                opacity: 1,
+                y: 0,
+                duration: 0.5,
+                delay: 0.6,
+                ease: 'power3.out'
+            }
+        );
+    }
+
+    // Animate checklist cards
+    const checklistCards = page.querySelectorAll('.checklist-card');
+    gsap.fromTo(checklistCards,
+        {
+            opacity: 0,
+            y: 30
+        },
+        {
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+            stagger: 0.1,
+            delay: 0.7,
+            ease: 'power3.out'
+        }
+    );
+
+    // Animate meta section
+    const metaSection = page.querySelector('.playbook-meta');
+    if (metaSection) {
+        gsap.fromTo(metaSection,
+            {
+                opacity: 0,
+                y: 30
+            },
+            {
+                opacity: 1,
+                y: 0,
+                duration: 0.6,
+                delay: 0.8,
                 ease: 'power3.out'
             }
         );
@@ -725,7 +922,7 @@ function initLearningModal() {
 
     let currentLearningIndex = 0;
 
-    // Learning data
+    // Learning data — must match the 6 learning panels in index.html
     const learningData = [
         {
             number: '01',
@@ -737,30 +934,175 @@ function initLearningModal() {
                     <div class="gap-item">
                         <span class="gap-number">1</span>
                         <div class="gap-content">
-                            <strong>No Claude MD / skills files.</strong> No indexing or directory structure for AI tools. Context fills up too fast.
+                            <strong>CLAUDE.md hasn't been updated in months.</strong> Team members don't feel empowered to add learnings or "do not do X" statements.
                         </div>
                     </div>
                     <div class="gap-item">
                         <span class="gap-number">2</span>
                         <div class="gap-content">
-                            <strong>No documentation ownership.</strong> Code is diffuse across 50+ locations with no coherent team ownership.
+                            <strong>Skills usage is very limited.</strong> No clear path for incorporating learnings into the shared codebase environment.
                         </div>
                     </div>
                     <div class="gap-item">
                         <span class="gap-number">3</span>
                         <div class="gap-content">
+                            <strong>No documentation ownership.</strong> Code is diffuse across 50+ locations with no coherent team ownership.
+                        </div>
+                    </div>
+                    <div class="gap-item">
+                        <span class="gap-number">4</span>
+                        <div class="gap-content">
                             <strong>Overloaded terms.</strong> Words like "future" and "permission" mean different things, causing AI to go down wrong paths.
                         </div>
                     </div>
+                    <div class="gap-item">
+                        <span class="gap-number">5</span>
+                        <div class="gap-content">
+                            <strong>Code is scattered across 50+ locations.</strong> Absent or unclear code ownership creates diffusion problems, making domain-specific Claude MD files impractical.
+                        </div>
+                    </div>
+                </div>
+                <div class="learning-strategy">
+                    <span class="strategy-label">Proposed Strategy: Team-Owned Claude MD</span>
+                    <ul>
+                        <li><strong>Focus on "do not do X" statements</strong> — negative instructions are more effective than proactive ones</li>
+                        <li><strong>Break into team-owned indexes</strong> — roughly one per complex area/pod, append-only for scalability</li>
+                        <li><strong>Claude can traverse an index</strong> without overloading context until it's in the right "space"</li>
+                        <li><strong>Use on-call structure</strong> for recurring input to skill/agent/claude files</li>
+                    </ul>
                 </div>
                 <p>These gaps affect everyone—not just PMs. Fixing them would unlock AI productivity across the entire engineering org.</p>
-                <p class="learning-insight"><strong>These are solvable.</strong> Product urges continued focus on codebase skills, indexes, and teams owning .md files for their areas.</p>
+                <p class="learning-insight"><strong>Bright spot:</strong> The UX content team created a helpful content and copy skill. This is the model to follow.</p>
             `
         },
         {
             number: '02',
-            title: 'Our Review Process Needs to Adapt',
+            title: 'Airgapped Prototyping is the Untapped Opportunity',
             featured: true,
+            content: `
+                <p>The highest-value application of PM coding might not be production code at all. <strong>It's rapid prototyping for user validation.</strong></p>
+                <div class="learning-approach">
+                    <span class="approach-label">The Approach (from Joseph Soltzberg)</span>
+                    <ul>
+                        <li>Create a <strong>separate repo</strong> completely airgapped from production</li>
+                        <li>Include styling libraries that <strong>mimic the real product</strong></li>
+                        <li>Build functional prototypes and distribute for <strong>unmoderated testing at scale</strong> (50-200 users)</li>
+                        <li>Use AI to analyze results and generate learnings</li>
+                    </ul>
+                </div>
+                <p>This approach lets teams <strong>"climb the truth curve"</strong> much more efficiently—validating ideas before committing significant engineering resources.</p>
+                <p class="learning-insight"><strong>This was underexplored in the spike.</strong> Most effort went into production code. The prototyping path may have higher ROI.</p>
+            `
+        },
+        {
+            number: '03',
+            title: 'Code Quality Requires Active Supervision',
+            featured: false,
+            content: `
+                <p>Claude makes suboptimal choices for production-quality code. <strong>You can't just accept the output—you need to actively supervise.</strong></p>
+                <div class="learning-issues">
+                    <div class="issue-item">
+                        <span class="issue-icon">⚠️</span>
+                        <span>Struggles with string handling and makes arbitrary code structure decisions</span>
+                    </div>
+                    <div class="issue-item">
+                        <span class="issue-icon">⚠️</span>
+                        <span>Complex areas (multiple feature flags + admin features) cause confusion</span>
+                    </div>
+                    <div class="issue-item">
+                        <span class="issue-icon">⚠️</span>
+                        <span>DB migrations and edge cases are "scary territory" requiring design help</span>
+                    </div>
+                    <div class="issue-item">
+                        <span class="issue-icon">⚠️</span>
+                        <span>Sometimes digs into features that aren't relevant to the task</span>
+                    </div>
+                    <div class="issue-item">
+                        <span class="issue-icon">⚠️</span>
+                        <span>Tests and CI are a slog — Playwright testing proved difficult, PRs failing in CI with unclear Buildkite debugging</span>
+                    </div>
+                </div>
+                <p class="learning-insight"><strong>The implication:</strong> PM coding isn't "hands off." It requires reading and understanding every line before shipping.</p>
+            `
+        },
+        {
+            number: '04',
+            title: 'Design Review is Non-Negotiable',
+            featured: false,
+            content: `
+                <p>Any user-facing UI needs design review before shipping. <strong>This was a blind spot in early thinking about PM coding.</strong></p>
+                <div class="learning-quote">
+                    <span class="quote-mark">"</span>
+                    <p>PMs shipping code must maintain Airtable's design quality and consistency. This requires structured design collaboration throughout the development process.</p>
+                    <span class="quote-attribution">— Kristen Freitas, Design POV</span>
+                </div>
+                <div class="design-findings">
+                    <span class="findings-label">Key Design Findings</span>
+                    <div class="design-finding-item">
+                        <strong>Late design review is expensive.</strong> At the PR stage, designers must do mini-explorations to understand context, sometimes reverse-engineering the PR to understand the problem through the solution.
+                    </div>
+                    <div class="design-finding-item">
+                        <strong>Simple changes aren't always simple.</strong> Small changes can have ripple effects impacting multiple surfaces and creating inconsistencies with existing patterns.
+                    </div>
+                    <div class="design-finding-item">
+                        <strong>Two categories of feedback:</strong> Design polish (padding, margins, Aero component usage, color, alignment) and UX pattern issues (inconsistencies requiring auditing, exploration, and potentially different approaches).
+                    </div>
+                </div>
+                <div class="design-checkpoints">
+                    <span class="checkpoints-label">Proposed Design Checkpoints</span>
+                    <div class="checkpoint-flow">
+                        <div class="checkpoint-item">
+                            <span class="checkpoint-number">1</span>
+                            <div class="checkpoint-content">
+                                <strong>Planning</strong>
+                                <p>Design adds to lightweight PRD before coding. UX pattern guidance, Aero components, a11y/l10n, error states. Quick mocks to feed vibe-code.</p>
+                            </div>
+                        </div>
+                        <div class="checkpoint-arrow">
+                            <svg width="24" height="24" viewBox="0 0 24 24">
+                                <path d="M5 12h14M14 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                        </div>
+                        <div class="checkpoint-item">
+                            <span class="checkpoint-number">2</span>
+                            <div class="checkpoint-content">
+                                <strong>Prototype</strong>
+                                <p>Feedback on working 1st draft. Aero usage, UI consistency, UX flow, adjacent surface impact. Weekly crit for awareness.</p>
+                            </div>
+                        </div>
+                        <div class="checkpoint-arrow">
+                            <svg width="24" height="24" viewBox="0 0 24 24">
+                                <path d="M5 12h14M14 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                        </div>
+                        <div class="checkpoint-item">
+                            <span class="checkpoint-number">3</span>
+                            <div class="checkpoint-content">
+                                <strong>Crit</strong>
+                                <p>Design signoff before dogfood. Async for minor changes, weekly crit for larger features, domain expert when possible.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="learning-contacts">
+                    <span class="contacts-label">Design Resources</span>
+                    <div class="contact-item">
+                        <strong>Kristen Freitas</strong> — Main point of contact for design review
+                    </div>
+                    <div class="contact-item">
+                        <strong>Trijeet Mukhopadhyay</strong> — Prototyping expertise, extensive UI prototyping experience
+                    </div>
+                    <div class="contact-item">
+                        <strong>Chloe's workshop</strong> — Working with design, Storybook, and QA-ing UI
+                    </div>
+                </div>
+                <p class="learning-insight"><strong>Recommendation:</strong> Create skill docs for design (content team's tone/voice skill is the model), invest in getting more Aero components into code.</p>
+            `
+        },
+        {
+            number: '05',
+            title: 'Our Review Process Needs to Adapt',
+            featured: false,
             content: `
                 <p>PMs can write code faster than engineers can review it. <strong>Our current PR process assumes authors can iterate independently on feedback.</strong></p>
                 <div class="bottleneck-visual">
@@ -785,33 +1127,35 @@ function initLearningModal() {
             `
         },
         {
-            number: '03',
-            title: 'Prototyping Changes the Game',
+            number: '06',
+            title: 'Cross-Functional Applications Exist',
             featured: false,
             content: `
-                <p>The workflow shift from "write PRD, go through design" to "prototype first, then refine" produces better starting points and faster iteration.</p>
-                <div class="learning-quote">
-                    <span class="quote-mark">"</span>
-                    <p>This was way better than writing a PRD and going through design. Now the starting point with which I go to design is much stronger.</p>
-                    <span class="quote-attribution">— PM after the prototyping spike</span>
+                <p>PM coding isn't the only use case. <strong>Other teams are finding value in AI-assisted codebase work.</strong></p>
+                <div class="learning-applications">
+                    <div class="application-item">
+                        <span class="app-icon">🎧</span>
+                        <div class="app-content">
+                            <strong>Support Team</strong>
+                            <p>Using AI to answer "is this expected behavior?" escalations. Getting codebase access via Cursor to investigate issues directly.</p>
+                        </div>
+                    </div>
+                    <div class="application-item">
+                        <span class="app-icon">🔌</span>
+                        <div class="app-content">
+                            <strong>Integration Requests</strong>
+                            <p>Emily Houlihan highlighted integration requests that "should be easy" as good candidates for this type of work.</p>
+                        </div>
+                    </div>
+                    <div class="application-item">
+                        <span class="app-icon">📝</span>
+                        <div class="app-content">
+                            <strong>Documentation Workflows</strong>
+                            <p>Chase started a local workflow for documenting support issues—helpful for both engineering escalations and building against feature requests.</p>
+                        </div>
+                    </div>
                 </div>
-                <p>The Governance spike proved this works even in our most complex areas—permissions and licensing, arguably our most complicated domain. If it works there, it works elsewhere.</p>
-                <p class="learning-insight">Instead of describing what you want, show working code. Engineers receive a functional starting point instead of static mockups.</p>
-            `
-        },
-        {
-            number: '04',
-            title: 'PM-Eng Pairing Creates New Value',
-            featured: false,
-            content: `
-                <p>PMs and engineers approach AI tools differently. <strong>These differences are complementary, not competing.</strong></p>
-                <div class="learning-quote">
-                    <span class="quote-mark">"</span>
-                    <p>It was incredibly helpful to see how you approach using Claude Code as it is a departure from how I solve building as an engineer.</p>
-                    <span class="quote-attribution">— Engineer after pairing with a PM</span>
-                </div>
-                <p>PMs describe outcomes; engineers specify implementations. When paired, they can validate approaches faster and catch blind spots earlier. This is a new collaboration model worth exploring.</p>
-                <p class="learning-insight">Consider dedicated PM-Eng pairing sessions for AI-assisted development. Both roles learn from each other's mental models.</p>
+                <p class="learning-insight"><strong>The broader opportunity:</strong> AI-assisted codebase interaction may have applications beyond just "shipping PRs."</p>
             `
         }
     ];

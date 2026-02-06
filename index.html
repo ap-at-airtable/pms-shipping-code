@@ -63,6 +63,10 @@
                 <span class="tab-icon">&#10003;</span>
                 <span class="tab-text">Conclusions</span>
             </button>
+            <button class="nav-tab" data-page="playbook">
+                <span class="tab-icon">&#9776;</span>
+                <span class="tab-text">Playbook</span>
+            </button>
         </div>
         <div class="nav-date">
             <span class="pulse-dot"></span>
@@ -395,31 +399,188 @@
                                 <div class="gap-item">
                                     <span class="gap-number">1</span>
                                     <div class="gap-content">
-                                        <strong>No Claude MD / skills files.</strong> No indexing or directory structure for AI tools. Context fills up too fast.
+                                        <strong>CLAUDE.md hasn't been updated in months.</strong> Team members don't feel empowered to add learnings or "do not do X" statements.
                                     </div>
                                 </div>
                                 <div class="gap-item">
                                     <span class="gap-number">2</span>
                                     <div class="gap-content">
-                                        <strong>No documentation ownership.</strong> Code is diffuse across 50+ locations with no coherent team ownership.
+                                        <strong>Skills usage is very limited.</strong> No clear path for incorporating learnings into the shared codebase environment.
                                     </div>
                                 </div>
                                 <div class="gap-item">
                                     <span class="gap-number">3</span>
                                     <div class="gap-content">
+                                        <strong>No documentation ownership.</strong> Code is diffuse across 50+ locations with no coherent team ownership.
+                                    </div>
+                                </div>
+                                <div class="gap-item">
+                                    <span class="gap-number">4</span>
+                                    <div class="gap-content">
                                         <strong>Overloaded terms.</strong> Words like "future" and "permission" mean different things, causing AI to go down wrong paths.
+                                    </div>
+                                </div>
+                                <div class="gap-item">
+                                    <span class="gap-number">5</span>
+                                    <div class="gap-content">
+                                        <strong>Code is scattered across 50+ locations.</strong> Absent or unclear code ownership creates diffusion problems, making domain-specific Claude MD files impractical.
                                     </div>
                                 </div>
                             </div>
                             <p>These gaps affect everyone—not just PMs. Fixing them would unlock AI productivity across the entire engineering org.</p>
-                            <p class="learning-insight"><strong>These are solvable.</strong> Product urges continued focus on codebase skills, indexes, and teams owning .md files for their areas.</p>
+                            <div class="learning-strategy">
+                                <span class="strategy-label">Proposed Strategy: Team-Owned Claude MD</span>
+                                <ul>
+                                    <li><strong>Focus on "do not do X" statements</strong> — negative instructions are more effective than proactive ones</li>
+                                    <li><strong>Break into team-owned indexes</strong> — roughly one per complex area/pod, append-only for scalability</li>
+                                    <li><strong>Claude can traverse an index</strong> without overloading context until it's in the right "space"</li>
+                                    <li><strong>Use on-call structure</strong> for recurring input to skill/agent/claude files</li>
+                                </ul>
+                            </div>
+                            <p class="learning-insight"><strong>Bright spot:</strong> The UX content team created a helpful content and copy skill. This is the model to follow.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Learning 2: Our Review Process Needs to Adapt (FEATURED) -->
+                <!-- Learning 2: Airgapped Prototyping (FEATURED) -->
                 <div class="learning-panel featured" data-index="2">
                     <div class="learning-number">02</div>
+                    <div class="learning-content">
+                        <h3>Airgapped Prototyping is the Untapped Opportunity</h3>
+                        <div class="learning-detail">
+                            <p>The highest-value application of PM coding might not be production code at all. <strong>It's rapid prototyping for user validation.</strong></p>
+                            <div class="learning-approach">
+                                <span class="approach-label">The Approach (from Joseph Soltzberg)</span>
+                                <ul>
+                                    <li>Create a <strong>separate repo</strong> completely airgapped from production</li>
+                                    <li>Include styling libraries that <strong>mimic the real product</strong></li>
+                                    <li>Build functional prototypes and distribute for <strong>unmoderated testing at scale</strong> (50-200 users)</li>
+                                    <li>Use AI to analyze results and generate learnings</li>
+                                </ul>
+                            </div>
+                            <p>This approach lets teams <strong>"climb the truth curve"</strong> much more efficiently—validating ideas before committing significant engineering resources.</p>
+                            <p class="learning-insight"><strong>This was underexplored in the spike.</strong> Most effort went into production code. The prototyping path may have higher ROI.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Learning 3: Code Quality Requires Supervision -->
+                <div class="learning-panel" data-index="3">
+                    <div class="learning-number">03</div>
+                    <div class="learning-content">
+                        <h3>Code Quality Requires Active Supervision</h3>
+                        <div class="learning-detail">
+                            <p>Claude makes suboptimal choices for production-quality code. <strong>You can't just accept the output—you need to actively supervise.</strong></p>
+                            <div class="learning-issues">
+                                <div class="issue-item">
+                                    <span class="issue-icon">⚠️</span>
+                                    <span>Struggles with string handling and makes arbitrary code structure decisions</span>
+                                </div>
+                                <div class="issue-item">
+                                    <span class="issue-icon">⚠️</span>
+                                    <span>Complex areas (multiple feature flags + admin features) cause confusion</span>
+                                </div>
+                                <div class="issue-item">
+                                    <span class="issue-icon">⚠️</span>
+                                    <span>DB migrations and edge cases are "scary territory" requiring design help</span>
+                                </div>
+                                <div class="issue-item">
+                                    <span class="issue-icon">⚠️</span>
+                                    <span>Sometimes digs into features that aren't relevant to the task</span>
+                                </div>
+                                <div class="issue-item">
+                                    <span class="issue-icon">⚠️</span>
+                                    <span>Tests and CI are a slog — Playwright testing proved difficult, PRs failing in CI with unclear Buildkite debugging</span>
+                                </div>
+                            </div>
+                            <p class="learning-insight"><strong>The implication:</strong> PM coding isn't "hands off." It requires reading and understanding every line before shipping.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Learning 4: Design Review is Non-Negotiable -->
+                <div class="learning-panel" data-index="4">
+                    <div class="learning-number">04</div>
+                    <div class="learning-content">
+                        <h3>Design Review is Non-Negotiable</h3>
+                        <div class="learning-detail">
+                            <p>Any user-facing UI needs design review before shipping. <strong>This was a blind spot in early thinking about PM coding.</strong></p>
+                            <div class="learning-quote">
+                                <span class="quote-mark">"</span>
+                                <p>PMs shipping code must maintain Airtable's design quality and consistency. This requires structured design collaboration throughout the development process.</p>
+                                <span class="quote-attribution">— Kristen Freitas, Design POV</span>
+                            </div>
+
+                            <div class="design-findings">
+                                <span class="findings-label">Key Design Findings</span>
+                                <div class="design-finding-item">
+                                    <strong>Late design review is expensive.</strong> At the PR stage, designers must do mini-explorations to understand context, sometimes reverse-engineering the PR to understand the problem through the solution.
+                                </div>
+                                <div class="design-finding-item">
+                                    <strong>Simple changes aren't always simple.</strong> Small changes can have ripple effects impacting multiple surfaces and creating inconsistencies with existing patterns.
+                                </div>
+                                <div class="design-finding-item">
+                                    <strong>Two categories of feedback:</strong> Design polish (padding, margins, Aero component usage, color, alignment) and UX pattern issues (inconsistencies requiring auditing, exploration, and potentially different approaches).
+                                </div>
+                            </div>
+
+                            <div class="design-checkpoints">
+                                <span class="checkpoints-label">Proposed Design Checkpoints</span>
+                                <div class="checkpoint-flow">
+                                    <div class="checkpoint-item">
+                                        <span class="checkpoint-number">1</span>
+                                        <div class="checkpoint-content">
+                                            <strong>Planning</strong>
+                                            <p>Design adds to lightweight PRD before coding. UX pattern guidance, Aero components, a11y/l10n, error states. Quick mocks to feed vibe-code.</p>
+                                        </div>
+                                    </div>
+                                    <div class="checkpoint-arrow">
+                                        <svg width="24" height="24" viewBox="0 0 24 24">
+                                            <path d="M5 12h14M14 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none"/>
+                                        </svg>
+                                    </div>
+                                    <div class="checkpoint-item">
+                                        <span class="checkpoint-number">2</span>
+                                        <div class="checkpoint-content">
+                                            <strong>Prototype</strong>
+                                            <p>Feedback on working 1st draft. Aero usage, UI consistency, UX flow, adjacent surface impact. Weekly crit for awareness.</p>
+                                        </div>
+                                    </div>
+                                    <div class="checkpoint-arrow">
+                                        <svg width="24" height="24" viewBox="0 0 24 24">
+                                            <path d="M5 12h14M14 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none"/>
+                                        </svg>
+                                    </div>
+                                    <div class="checkpoint-item">
+                                        <span class="checkpoint-number">3</span>
+                                        <div class="checkpoint-content">
+                                            <strong>Crit</strong>
+                                            <p>Design signoff before dogfood. Async for minor changes, weekly crit for larger features, domain expert when possible.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="learning-contacts">
+                                <span class="contacts-label">Design Resources</span>
+                                <div class="contact-item">
+                                    <strong>Kristen Freitas</strong> — Main point of contact for design review
+                                </div>
+                                <div class="contact-item">
+                                    <strong>Trijeet Mukhopadhyay</strong> — Prototyping expertise, extensive UI prototyping experience
+                                </div>
+                                <div class="contact-item">
+                                    <strong>Chloe's workshop</strong> — Working with design, Storybook, and QA-ing UI
+                                </div>
+                            </div>
+                            <p class="learning-insight"><strong>Recommendation:</strong> Create skill docs for design (content team's tone/voice skill is the model), invest in getting more Aero components into code.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Learning 5: Review Process Needs to Adapt -->
+                <div class="learning-panel" data-index="5">
+                    <div class="learning-number">05</div>
                     <div class="learning-content">
                         <h3>Our Review Process Needs to Adapt</h3>
                         <div class="learning-detail">
@@ -447,41 +608,41 @@
                     </div>
                 </div>
 
-                <!-- Learning 3: Prototyping Changes the Game -->
-                <div class="learning-panel" data-index="3">
-                    <div class="learning-number">03</div>
+                <!-- Learning 6: Cross-Functional Applications -->
+                <div class="learning-panel" data-index="6">
+                    <div class="learning-number">06</div>
                     <div class="learning-content">
-                        <h3>Prototyping Changes the Game</h3>
+                        <h3>Cross-Functional Applications Exist</h3>
                         <div class="learning-detail">
-                            <p>The workflow shift from "write PRD, go through design" to "prototype first, then refine" produces better starting points and faster iteration.</p>
-                            <div class="learning-quote">
-                                <span class="quote-mark">"</span>
-                                <p>This was way better than writing a PRD and going through design. Now the starting point with which I go to design is much stronger.</p>
-                                <span class="quote-attribution">— PM after the prototyping spike</span>
+                            <p>PM coding isn't the only use case. <strong>Other teams are finding value in AI-assisted codebase work.</strong></p>
+                            <div class="learning-applications">
+                                <div class="application-item">
+                                    <span class="app-icon">🎧</span>
+                                    <div class="app-content">
+                                        <strong>Support Team</strong>
+                                        <p>Using AI to answer "is this expected behavior?" escalations. Getting codebase access via Cursor to investigate issues directly.</p>
+                                    </div>
+                                </div>
+                                <div class="application-item">
+                                    <span class="app-icon">🔌</span>
+                                    <div class="app-content">
+                                        <strong>Integration Requests</strong>
+                                        <p>Emily Houlihan highlighted integration requests that "should be easy" as good candidates for this type of work.</p>
+                                    </div>
+                                </div>
+                                <div class="application-item">
+                                    <span class="app-icon">📝</span>
+                                    <div class="app-content">
+                                        <strong>Documentation Workflows</strong>
+                                        <p>Chase started a local workflow for documenting support issues—helpful for both engineering escalations and building against feature requests.</p>
+                                    </div>
+                                </div>
                             </div>
-                            <p>The Governance spike proved this works even in our most complex areas—permissions and licensing, arguably our most complicated domain. If it works there, it works elsewhere.</p>
-                            <p class="learning-insight">Instead of describing what you want, show working code. Engineers receive a functional starting point instead of static mockups.</p>
+                            <p class="learning-insight"><strong>The broader opportunity:</strong> AI-assisted codebase interaction may have applications beyond just "shipping PRs."</p>
                         </div>
                     </div>
                 </div>
-
-                <!-- Learning 4: PM-Eng Pairing Creates New Value -->
-                <div class="learning-panel" data-index="4">
-                    <div class="learning-number">04</div>
-                    <div class="learning-content">
-                        <h3>PM-Eng Pairing Creates New Value</h3>
-                        <div class="learning-detail">
-                            <p>PMs and engineers approach AI tools differently. <strong>These differences are complementary, not competing.</strong></p>
-                            <div class="learning-quote">
-                                <span class="quote-mark">"</span>
-                                <p>It was incredibly helpful to see how you approach using Claude Code as it is a departure from how I solve building as an engineer.</p>
-                                <span class="quote-attribution">— Engineer after pairing with a PM</span>
-                            </div>
-                            <p>PMs describe outcomes; engineers specify implementations. When paired, they can validate approaches faster and catch blind spots earlier. This is a new collaboration model worth exploring.</p>
-                            <p class="learning-insight">Consider dedicated PM-Eng pairing sessions for AI-assisted development. Both roles learn from each other's mental models.</p>
-                        </div>
-                    </div>
-                </div>
+            </div>
         </section>
 
         <!-- CONCLUSIONS PAGE -->
@@ -566,6 +727,499 @@
                         <span class="step-number">4</span>
                         <span class="step-text">Design adapted review process for PM code</span>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PLAYBOOK PAGE -->
+        <section class="page" id="page-playbook">
+            <div class="page-header">
+                <span class="page-number">05</span>
+                <h2 class="page-title">PM Coding Playbook</h2>
+                <p class="page-subtitle">Guidelines for product managers shipping code</p>
+            </div>
+
+            <div class="playbook-container">
+                <!-- Core Principle -->
+                <div class="playbook-principle">
+                    <div class="principle-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="12" y1="8" x2="12" y2="12"/>
+                            <line x1="12" y1="16" x2="12.01" y2="16"/>
+                        </svg>
+                    </div>
+                    <p><strong>PM coding is a tool for acceleration, not a replacement for engineering.</strong> Use it to unblock small things quickly, validate ideas faster, or get a head start. Don't use it to become a shadow engineer.</p>
+                </div>
+
+                <!-- Decision Framework -->
+                <div class="playbook-section">
+                    <h3 class="playbook-section-title">
+                        <span class="section-icon">&#9670;</span>
+                        Before You Start: Three Questions
+                    </h3>
+                    <div class="decision-cards">
+                        <div class="decision-card">
+                            <span class="decision-number">1</span>
+                            <h4>Is this the right type of work?</h4>
+                            <div class="decision-lists">
+                                <div class="decision-list good">
+                                    <span class="list-label">✓ Good Candidates</span>
+                                    <ul>
+                                        <li>Paper cuts and small UX fixes</li>
+                                        <li>Copy/label changes</li>
+                                        <li>Small, isolated bug fixes</li>
+                                        <li>Functional prototypes</li>
+                                        <li>Error message improvements</li>
+                                    </ul>
+                                </div>
+                                <div class="decision-list bad">
+                                    <span class="list-label">✗ Poor Candidates</span>
+                                    <ul>
+                                        <li>Multiple feature flags</li>
+                                        <li>Database migrations</li>
+                                        <li>Complex edge cases</li>
+                                        <li>Security-sensitive areas</li>
+                                        <li>Core infrastructure</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="decision-card">
+                            <span class="decision-number">2</span>
+                            <h4>Can I scope this tightly?</h4>
+                            <p>Before starting, write down:</p>
+                            <ul class="scope-checklist">
+                                <li>What exactly will I change?</li>
+                                <li>What files will I touch?</li>
+                                <li>What's the acceptance criteria?</li>
+                                <li>What's my time budget?</li>
+                            </ul>
+                            <p class="scope-warning">If you can't answer these clearly, it's probably too ambiguous.</p>
+                        </div>
+                        <div class="decision-card">
+                            <span class="decision-number">3</span>
+                            <h4>Is this the best use of my time?</h4>
+                            <p>PM coding has opportunity cost. You could be:</p>
+                            <ul class="opportunity-list">
+                                <li>Talking to customers</li>
+                                <li>Working on strategy</li>
+                                <li>Unblocking your team</li>
+                                <li>Prioritizing the backlog</li>
+                            </ul>
+                            <p class="scope-warning">Only code when it's genuinely higher ROI.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Two Tracks -->
+                <div class="playbook-section">
+                    <h3 class="playbook-section-title">
+                        <span class="section-icon">&#9654;</span>
+                        The Two Tracks
+                    </h3>
+                    <div class="tracks-container">
+                        <div class="track-card track-production">
+                            <div class="track-header">
+                                <span class="track-label">Track A</span>
+                                <h4>Production Code</h4>
+                                <p class="track-subtitle">Papercuts &amp; Quality-of-Life in Hyperbase</p>
+                            </div>
+                            <div class="track-framing">
+                                <p>For minimal full-stack work, a PM should feel empowered to make enhancements with eng support. This frees up backlog and core eng focus — <strong>not about PMs becoming junior devs, but increasing overall velocity.</strong></p>
+                            </div>
+                            <div class="track-body">
+                                <div class="track-workflow">
+                                    <span class="workflow-title">The Workflow</span>
+                                    <ol>
+                                        <li><strong>Scope first</strong> — Define exactly what you're changing</li>
+                                        <li><strong>Set time budget</strong> — Typically 2-4 hours max</li>
+                                        <li><strong>Build it</strong> — With active AI supervision</li>
+                                        <li><strong>Self-review</strong> — Read and understand every line</li>
+                                        <li><strong>Design review</strong> — Loop in design for UI changes</li>
+                                        <li><strong>Submit PR</strong> — Expect 1-2 review cycles</li>
+                                        <li><strong>Hand off if stuck</strong> — After 2 cycles, reassess</li>
+                                    </ol>
+                                </div>
+                                <div class="track-guardrails">
+                                    <span class="guardrails-title">Guardrails</span>
+                                    <div class="guardrail-item">
+                                        <span class="guardrail-icon">⏱️</span>
+                                        <span><strong>Time limit:</strong> Stop after budget, even if not done</span>
+                                    </div>
+                                    <div class="guardrail-item">
+                                        <span class="guardrail-icon">🔄</span>
+                                        <span><strong>Review limit:</strong> After 2 cycles, reassess</span>
+                                    </div>
+                                    <div class="guardrail-item">
+                                        <span class="guardrail-icon">🚨</span>
+                                        <span><strong>Complexity trigger:</strong> Feature flags, migrations, edge cases — stop</span>
+                                    </div>
+                                    <div class="guardrail-item">
+                                        <span class="guardrail-icon">👀</span>
+                                        <span><strong>Supervision:</strong> Never blindly accept AI output</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="track-card track-prototype">
+                            <div class="track-header">
+                                <span class="track-label">Track B</span>
+                                <h4>Prototyping</h4>
+                                <p class="track-subtitle">The Physical Form of the PRD</p>
+                            </div>
+                            <div class="track-framing">
+                                <p>When there's hesitation on priorities or broader buy-in, prototyping can clarify vision and impact. <strong>It makes it clearer across design and eng what we're actually building.</strong></p>
+                            </div>
+                            <div class="track-body">
+                                <div class="track-workflow">
+                                    <span class="workflow-title">The Workflow</span>
+                                    <ol>
+                                        <li><strong>Define hypothesis</strong> — What are you trying to learn?</li>
+                                        <li><strong>Build prototype</strong> — Functional, not production quality</li>
+                                        <li><strong>Deploy for testing</strong> — Password-gated, separate</li>
+                                        <li><strong>Get user feedback</strong> — Unmoderated testing at scale</li>
+                                        <li><strong>Synthesize learnings</strong> — What's the recommendation?</li>
+                                        <li><strong>Hand off</strong> — With learnings and prototype</li>
+                                    </ol>
+                                </div>
+                                <div class="track-guardrails">
+                                    <span class="guardrails-title">Guardrails</span>
+                                    <div class="guardrail-item">
+                                        <span class="guardrail-icon">🎯</span>
+                                        <span><strong>Learning-focused:</strong> Goal is insight, not shippable code</span>
+                                    </div>
+                                    <div class="guardrail-item">
+                                        <span class="guardrail-icon">🗑️</span>
+                                        <span><strong>Disposable:</strong> This code won't ship — that's fine</span>
+                                    </div>
+                                    <div class="guardrail-item">
+                                        <span class="guardrail-icon">📊</span>
+                                        <span><strong>Measure:</strong> Track what you learned, not what you built</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Claude Code Best Practices -->
+                <div class="playbook-section">
+                    <h3 class="playbook-section-title">
+                        <span class="section-icon">&#9733;</span>
+                        Claude Code Best Practices
+                    </h3>
+
+                    <!-- Key Features -->
+                    <div class="claude-features-grid">
+                        <div class="claude-feature">
+                            <div class="feature-header">
+                                <span class="feature-icon">📋</span>
+                                <h4>Plan Mode</h4>
+                            </div>
+                            <p>Use <code>/plan</code> before any non-trivial change. Claude will explore the codebase, identify relevant files, and propose an approach before writing code.</p>
+                            <div class="feature-tips">
+                                <span class="tips-label">When to use:</span>
+                                <ul>
+                                    <li>Changes touching multiple files</li>
+                                    <li>Unfamiliar areas of codebase</li>
+                                    <li>When you're not sure where to start</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="claude-feature">
+                            <div class="feature-header">
+                                <span class="feature-icon">🔍</span>
+                                <h4>Code Review</h4>
+                            </div>
+                            <p>Use <code>/review</code> to have Claude review your changes before submitting a PR. Catches issues early and improves code quality.</p>
+                            <div class="feature-tips">
+                                <span class="tips-label">What it checks:</span>
+                                <ul>
+                                    <li>Style guide violations</li>
+                                    <li>Potential bugs and edge cases</li>
+                                    <li>Missing error handling</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="claude-feature">
+                            <div class="feature-header">
+                                <span class="feature-icon">💾</span>
+                                <h4>Commit Often</h4>
+                            </div>
+                            <p>Use <code>/commit</code> to checkpoint your work. Small, frequent commits let you rollback if Claude goes down a wrong path.</p>
+                            <div class="feature-tips">
+                                <span class="tips-label">Pro tip:</span>
+                                <ul>
+                                    <li>Commit after each working state</li>
+                                    <li>Use descriptive messages</li>
+                                    <li>Makes it easy to revert mistakes</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="claude-feature">
+                            <div class="feature-header">
+                                <span class="feature-icon">📁</span>
+                                <h4>CLAUDE.md Files</h4>
+                            </div>
+                            <p>These files give Claude codebase context. Read them to understand patterns. Add learnings when you discover something useful.</p>
+                            <div class="feature-tips">
+                                <span class="tips-label">You can contribute:</span>
+                                <ul>
+                                    <li>"Do not do X" warnings</li>
+                                    <li>Pattern examples</li>
+                                    <li>Common gotchas</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Prompting Tips -->
+                    <div class="prompting-section">
+                        <h4 class="prompting-title">Effective Prompting</h4>
+                        <div class="prompting-grid">
+                            <div class="prompt-example good">
+                                <span class="prompt-label">✓ Good Prompts</span>
+                                <div class="prompt-item">
+                                    <code>"Fix the padding on the submit button in LoginForm.tsx"</code>
+                                    <span class="prompt-why">Specific file, specific element, specific issue</span>
+                                </div>
+                                <div class="prompt-item">
+                                    <code>"Add a loading spinner while fetchUserData is pending"</code>
+                                    <span class="prompt-why">Clear outcome, references existing code</span>
+                                </div>
+                                <div class="prompt-item">
+                                    <code>"The error message says X but should say Y"</code>
+                                    <span class="prompt-why">Concrete before/after</span>
+                                </div>
+                            </div>
+                            <div class="prompt-example bad">
+                                <span class="prompt-label">✗ Avoid These</span>
+                                <div class="prompt-item">
+                                    <code>"Make the UI better"</code>
+                                    <span class="prompt-why">Too vague — better how?</span>
+                                </div>
+                                <div class="prompt-item">
+                                    <code>"Fix the bug"</code>
+                                    <span class="prompt-why">Which bug? What's the symptom?</span>
+                                </div>
+                                <div class="prompt-item">
+                                    <code>"Refactor this to be cleaner"</code>
+                                    <span class="prompt-why">Subjective — leads to arbitrary changes</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Common Pitfalls -->
+                    <div class="pitfalls-section">
+                        <h4 class="pitfalls-title">Common Pitfalls in Hyperbase</h4>
+                        <div class="pitfalls-grid">
+                            <div class="pitfall-item">
+                                <span class="pitfall-icon">⚠️</span>
+                                <div class="pitfall-content">
+                                    <strong>Overloaded terms</strong>
+                                    <p>Words like "permission," "future," and "field" mean different things in different contexts. Be explicit about which one you mean.</p>
+                                </div>
+                            </div>
+                            <div class="pitfall-item">
+                                <span class="pitfall-icon">⚠️</span>
+                                <div class="pitfall-content">
+                                    <strong>Context limits</strong>
+                                    <p>Complex areas fill up Claude's context fast. If responses get confused or repetitive, start a new conversation.</p>
+                                </div>
+                            </div>
+                            <div class="pitfall-item">
+                                <span class="pitfall-icon">⚠️</span>
+                                <div class="pitfall-content">
+                                    <strong>Feature flag intersections</strong>
+                                    <p>Areas with multiple feature flags are hard for Claude (and humans). Consider these off-limits for PM coding.</p>
+                                </div>
+                            </div>
+                            <div class="pitfall-item">
+                                <span class="pitfall-icon">⚠️</span>
+                                <div class="pitfall-content">
+                                    <strong>String handling</strong>
+                                    <p>Claude often makes suboptimal choices with string manipulation. Review these carefully.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Design Collaboration Checkpoints -->
+                <div class="playbook-section">
+                    <h3 class="playbook-section-title">
+                        <span class="section-icon">&#9998;</span>
+                        Design Collaboration Checkpoints
+                    </h3>
+                    <p class="playbook-section-intro">Design should be involved early to prevent rework. Route projects to the designer most familiar with the product area. <em>— from Kristen Freitas, Design POV</em></p>
+
+                    <div class="design-checkpoint-cards">
+                        <div class="design-checkpoint-card">
+                            <div class="design-checkpoint-header">
+                                <span class="design-checkpoint-num">1</span>
+                                <h4>Planning</h4>
+                                <span class="design-checkpoint-when">Before coding starts</span>
+                            </div>
+                            <p>Design adds to lightweight PRD:</p>
+                            <ul>
+                                <li>UX pattern guidance (follow/avoid)</li>
+                                <li>Required Aero components &amp; styling</li>
+                                <li>A11y and l10n considerations</li>
+                                <li>Error state requirements</li>
+                                <li>Quick mocks to feed vibe-code</li>
+                            </ul>
+                        </div>
+
+                        <div class="design-checkpoint-card">
+                            <div class="design-checkpoint-header">
+                                <span class="design-checkpoint-num">2</span>
+                                <h4>Prototype</h4>
+                                <span class="design-checkpoint-when">Working 1st draft exists</span>
+                            </div>
+                            <p>Design gives directional feedback:</p>
+                            <ul>
+                                <li>Correct Aero component usage</li>
+                                <li>UI consistency with existing patterns</li>
+                                <li>Intuitive UX flow</li>
+                                <li>Impact on adjacent surfaces</li>
+                                <li>Weekly design crit for awareness</li>
+                            </ul>
+                        </div>
+
+                        <div class="design-checkpoint-card">
+                            <div class="design-checkpoint-header">
+                                <span class="design-checkpoint-num">3</span>
+                                <h4>Crit</h4>
+                                <span class="design-checkpoint-when">Before dogfood</span>
+                            </div>
+                            <p>Design signoff:</p>
+                            <ul>
+                                <li>Async feedback for minor changes</li>
+                                <li>Weekly crit for larger features</li>
+                                <li>Domain expert review when possible</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="design-checkpoint-note">
+                        <strong>Why early involvement matters:</strong> Late design review is expensive — designers must reverse-engineer the PR to understand the problem. Small changes can ripple across multiple surfaces. Design feedback falls into two categories: <em>design polish</em> (padding, Aero, color) and <em>UX pattern issues</em> (inconsistencies requiring different approaches).
+                    </div>
+                </div>
+
+                <!-- When to Hand Off -->
+                <div class="playbook-section">
+                    <h3 class="playbook-section-title">
+                        <span class="section-icon">&#10140;</span>
+                        When to Hand Off
+                    </h3>
+                    <div class="handoff-table">
+                        <div class="handoff-row header">
+                            <span class="handoff-signal">Signal</span>
+                            <span class="handoff-action">Action</span>
+                        </div>
+                        <div class="handoff-row">
+                            <span class="handoff-signal">3+ review cycles</span>
+                            <span class="handoff-action">Hand off — past the efficiency point</span>
+                        </div>
+                        <div class="handoff-row">
+                            <span class="handoff-signal">Scope expanded</span>
+                            <span class="handoff-action">Hand off — bigger than estimated</span>
+                        </div>
+                        <div class="handoff-row">
+                            <span class="handoff-signal">Hit DB migration</span>
+                            <span class="handoff-action">Hand off — scary territory</span>
+                        </div>
+                        <div class="handoff-row">
+                            <span class="handoff-signal">Feature flag complexity</span>
+                            <span class="handoff-action">Hand off — AI and PMs both struggle</span>
+                        </div>
+                        <div class="handoff-row">
+                            <span class="handoff-signal">"I don't know why this works"</span>
+                            <span class="handoff-action">Hand off — you need to understand what ships</span>
+                        </div>
+                    </div>
+                    <div class="handoff-tips">
+                        <h4>How to Hand Off Well</h4>
+                        <ul>
+                            <li>Document what you tried and learned</li>
+                            <li>Leave the PR/branch in a clean state</li>
+                            <li>Explain where you got stuck and why</li>
+                            <li>Offer to pair to transfer context</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Quick Reference Checklist -->
+                <div class="playbook-section">
+                    <h3 class="playbook-section-title">
+                        <span class="section-icon">&#10003;</span>
+                        Quick Reference Checklist
+                    </h3>
+                    <div class="checklist-grid">
+                        <div class="checklist-card">
+                            <h4>Before Starting</h4>
+                            <ul class="checklist">
+                                <li>Is this a good candidate? (small, scoped, isolated)</li>
+                                <li>Can I clearly define scope and acceptance criteria?</li>
+                                <li>Have I set a time budget?</li>
+                                <li>Is this higher ROI than other PM work?</li>
+                            </ul>
+                        </div>
+                        <div class="checklist-card">
+                            <h4>While Working</h4>
+                            <ul class="checklist">
+                                <li>Am I actively supervising AI output?</li>
+                                <li>Am I within my time budget?</li>
+                                <li>Have I hit any complexity triggers?</li>
+                            </ul>
+                        </div>
+                        <div class="checklist-card">
+                            <h4>Before Submitting PR</h4>
+                            <ul class="checklist">
+                                <li>Have I read and understood every line?</li>
+                                <li>Have I gotten design review on UI changes?</li>
+                                <li>Is the scope still what I defined?</li>
+                            </ul>
+                        </div>
+                        <div class="checklist-card">
+                            <h4>After Review</h4>
+                            <ul class="checklist">
+                                <li>Have I stayed within 2 review cycles?</li>
+                                <li>If stuck, have I handed off cleanly?</li>
+                                <li>Have I documented what I learned?</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Meta Point -->
+                <div class="playbook-meta">
+                    <h4>The Meta Point</h4>
+                    <p>This playbook exists because <strong>PM coding is situational, not universal.</strong></p>
+                    <div class="meta-columns">
+                        <div class="meta-column">
+                            <span class="meta-label">The value comes from:</span>
+                            <ul>
+                                <li>Unblocking small things that would otherwise wait</li>
+                                <li>Learning faster through functional prototypes</li>
+                                <li>Building empathy with the codebase</li>
+                            </ul>
+                        </div>
+                        <div class="meta-column">
+                            <span class="meta-label">The danger is:</span>
+                            <ul>
+                                <li>Spending PM time on things eng should do</li>
+                                <li>Shipping lower-quality code</li>
+                                <li>Neglecting core PM responsibilities</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p class="meta-conclusion"><strong>Use judgment. When in doubt, don't code — PM.</strong></p>
                 </div>
             </div>
         </section>
